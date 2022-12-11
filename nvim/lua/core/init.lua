@@ -1,5 +1,10 @@
 require("core.remap")
 require("core.nvimtree")
+require("core.lsp")
+require("core.theme.catppuccin")
+require('neoscroll').setup()
+
+
 vim.opt.relativenumber = true
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -20,4 +25,5 @@ vim.g.loaded_netrwPlugin = 1
 
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
+
 

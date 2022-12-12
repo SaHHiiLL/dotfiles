@@ -1,8 +1,8 @@
 require("core.remap")
 require("core.nvimtree")
-require("core.lsp")
 require("core.theme.catppuccin")
 require('neoscroll').setup()
+require("core.coc")
 
 
 vim.opt.relativenumber = true

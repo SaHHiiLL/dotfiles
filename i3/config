@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+font JetBrainsMono:monospace 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -207,7 +207,7 @@ client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
 
 client.background       #FFFFFF
 
-exec_always --no-startup-id flameshot
+exec_always --no-startup-id flameshot &
 bindsym $mod+F11 exec ~/my-shell-scripts/wallpaper-randomizer
 bindsym Print exec flameshot gui
 
@@ -217,6 +217,8 @@ gaps outer 7
 gaps inner 7 
 smart_gaps on
 smart_borders on
-for_window [class="^.*"] border pixel 5
 
 default_border pixel 1
+default_floating_border pixel 1
+for_window [class="^.*"] border pixel 1
+

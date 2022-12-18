@@ -1,14 +1,18 @@
-require'lspconfig'.pyright.setup{}
+local lsp = require('lsp-zero')
 
-require('lspconfig')['rust_analyzer'].setup{
-    on_attach = on_attach,
-    flags = lsp_flags,
-    -- Server-specific settings...
-    settings = {
-      ["rust-analyzer"] = {}
-    }
-}
--- Disable virtual_text since it's redundant due to lsp_lines.
-vim.diagnostic.config({
-  virtual_text = false,
+lsp.preset('recommended')
+lsp.ensure_installed({
+    'rust_analyzer', 
+    'sumneko_lua',
 })
+
+local cmp = require('cmp')
+local cmp_select = {behavior = cmp.SelectBehavior.Select}
+local cmp_mappings = lsp.defaults.cmp_mappings({
+  ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+  ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+  ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+  ["<C-Space>"] = cmp.mapping.complete(),
+})
+
+lsp.setup()

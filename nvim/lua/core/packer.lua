@@ -16,7 +16,7 @@ return require('packer').startup(function(use)
         },
     }
     use 'karb94/neoscroll.nvim'
-    use ({'nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'}})
+    use {'nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'}}
     use {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.0',
@@ -72,5 +72,12 @@ return require('packer').startup(function(use)
     use {"akinsho/toggleterm.nvim", tag = '*', config = function()
         require("toggleterm").setup()
     end}
+    use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    }
+    use {'nyoom-engineering/oxocarbon.nvim'}
 end)
 

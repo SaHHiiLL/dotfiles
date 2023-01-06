@@ -1,6 +1,6 @@
 require("core.remap")
 require("core.nvimtree")
-require("core.theme.catppuccin")
+require("core.theme.oxocarbon")
 require('neoscroll').setup()
 require("core.coc")
 require("core.lualine")

@@ -58,8 +58,7 @@ return require('packer').startup(function(use)
     use {
         'romgrk/barbar.nvim',
         wants = 'nvim-web-devicons'
-    }
-    use {
+    } use { 
         "folke/which-key.nvim",
         config = function()
         require("which-key").setup {
@@ -79,5 +78,14 @@ return require('packer').startup(function(use)
         end
     }
     use {'nyoom-engineering/oxocarbon.nvim'}
+    use {
+        "folke/trouble.nvim",
+        requires = "kyazdani42/nvim-web-devicons",
+        config = function()
+            require("trouble").setup {
+            }
+        end
+    }
+    use { "ellisonleao/gruvbox.nvim" }
 end)
 

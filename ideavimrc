@@ -1,0 +1,46 @@
+" https://gist.github.com/zchee/9c78f91cc5ad771c1f5d  -- all the idea actions
+set clipboard+=unnamed
+set clipboard+=unnamedplus
+set number
+set relativenumber
+set scrolloff=8
+set tabstop=4
+set shiftwidth=4
+set incsearch
+set hlsearch
+set smartindent
+set cursorline
+
+let mapleader = " "
+map <leader>m <action>(Generate)
+
+" git
+map <leader>gm <action>(Git.Menu)
+map <leader>gg <action>(Github.Create.Gist)
+map <leader>gi <action>(Git.Init)
+map <leader>gcc <action>(CheckinProject)
+
+"code formatting
+map <leader>lcf <action>(ReformatCode)
+map <leader>lcv <action>(IntroduceVariable)
+map <leader>lco <action>(OptimizeImports)
+
+"lookups 
+map <leader>lcd <action>(QuickJavaDoc)
+
+" jumps lol
+map <leader>gd <action>(GotoDeclaration)
+map <leader>ge <action>(GotoNextError)
+map <leader>gu <action>(FindUsages)
+
+"  open menu
+map <leader>bm <action>(BuildMenu)
+map <leader>br <action>(Run)
+
+map <leader>tf <action>(SearchEverywhere)
+map <leader>e <action>(FileMenu)
+
+vmap J :m '>+1<CR>gv=gv
+vmap K :m '<-2<CR>gv=gv
+
+vmap <leader>p "+yy

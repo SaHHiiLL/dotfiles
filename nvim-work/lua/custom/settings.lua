@@ -23,4 +23,8 @@ vim.api.nvim_set_option("clipboard", "unnamed")
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
 
+-- vim.cmd.foldmethod = 'indent'
+-- set f
+-- oldmethod=indent
+
 

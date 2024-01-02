@@ -2,7 +2,7 @@ local M = {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
-      ensure_installed = {
+      nsure_installed = {
         -- defaults
         "vim",
         "lua",
@@ -96,6 +96,15 @@ local M = {
       require("rust-tools").setup(opts)
     end,
   },
+  {
+    'kevinhwang91/nvim-ufo',
+    dependencies = 'kevinhwang91/promise-async',
+    event = "VimEnter", -- needed for folds to load in time and comments closed
+
+    config = function()
+      require("custom.ufo")
+    end
+  }
 }
 
 return M

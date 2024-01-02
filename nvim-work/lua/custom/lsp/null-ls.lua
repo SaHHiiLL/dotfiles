@@ -12,7 +12,7 @@ local sources = {
   lint.shellcheck,
 }
 
-local on_attach = function (client, bufnr)
+local on_attach = function(client, bufnr)
   if client.supports_method("textDocument/formatting") then
     vim.api.nvim_clear_autocmds({
       group = augroup,
@@ -21,7 +21,7 @@ local on_attach = function (client, bufnr)
     vim.api.nvim_create_autocmd("BufWritePre", {
       group = augroup,
       buffer = bufnr,
-      callback = function ()
+      callback = function()
         vim.lsp.buf.format({ bufnr = bufnr })
       end
     })

@@ -153,7 +153,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec --no-startup-id ~/.config/rofi/bin/powermenu
+bindsym $mod+Shift+e exec --no-startup-id ~/.config/rofi/powermenu/type-1/powermenu.sh
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -194,7 +194,7 @@ exec --no-startup-id nitrogen --restore --set-auto
 #starting notification deamon
 exec --no-startup-id dnust -verbosity info 
 #Start picom
-exec --no-startup-id picom --no-fading-openclose
+exec_always --no-startup-id picom --no-fading-openclose --config ~/.config/picom.conf
 
 set $rosewater #f5e0dc
 set $flamingo  #f2cdcd

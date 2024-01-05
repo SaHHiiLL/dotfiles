@@ -27,31 +27,8 @@ vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "Copy -> Clipboard" })
 -- Paste something over text whilst preserving the current copied buffer
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
--- Makes life easy
+-- Changes the current files permission to executable
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- Select everything in the file
 vim.keymap.set({ "n" }, "<C-a>", "gg^vG$")
-
--- Trouble
-vim.keymap.set("n", "<leader>xa", "<cmd>TroubleToggle<cr>", { silent = true })
-
--- Harpoon lmao
-local hm = require("harpoon.mark")
-local hu = require("harpoon.ui")
-
--- Adds the current file to harpoon
-vim.keymap.set("n", "<C-b>", hm.add_file)
-
-vim.keymap.set({ "n", "v", "i" }, "<C-n>", function()
-    hu.toggle_quick_menu()
-end)
-
-vim.keymap.set({ "n", "v", "i" }, "<C-j>", function()
-    hu.nav_next()
-end)
-
-
-vim.keymap.set({ "n", "v", "i" }, "<C-k>", function()
-    hu.nav_prev()
-end)

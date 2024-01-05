@@ -104,6 +104,10 @@ local M = {
     config = function()
       require("custom.ufo")
     end
+  },
+  {
+    "windwp/nvim-autopairs",
+    enabled = false,
   }
 }
 

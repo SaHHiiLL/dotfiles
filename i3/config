@@ -23,6 +23,7 @@ font JetBrainsMono:monospace 8
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
+
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
@@ -53,6 +54,7 @@ bindsym $mod+Return exec --no-startup-id alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
+
 
 bindsym $mod+d exec --no-startup-id ~/.config/rofi/launchers/type-1/launcher.sh
 # A more modern dmenu replacement is rofi:

@@ -226,8 +226,8 @@ set $crust     #11111b
 
 # Colours
 # class                 border  bground     text        indicator   window border
-client.focused          $base   $surface0   $text       
-client.focused_inactive $teal   $surface1   $subtext1   #484E50     
+client.focused          $base   $surface0   $text       $lavender   $lavender
+client.focused_inactive $teal   $surface1   $subtext1   #484E50     $blue
 client.unfocused        #000000 #000000     #BFBFBF     #292D2E     #222222
 client.urgent           $red    #AD6B00     #FFFFFF     #900000     #900000
 client.placeholder      #000000 #0C0C0C     #FFFFFF     #000000     #0C0C0C

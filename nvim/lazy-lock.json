@@ -31,5 +31,6 @@
   "telescope.nvim": { "branch": "master", "commit": "87e92ea31b2b61d45ad044cf7b2d9b66dad2a618" },
   "ui": { "branch": "v2.0", "commit": "1737a2a98e18b635480756e817564b60ff31fc53" },
   "undotree": { "branch": "master", "commit": "36ff7abb6b60980338344982ad4cdf03f7961ecd" },
-  "which-key.nvim": { "branch": "main", "commit": "4433e5ec9a507e5097571ed55c02ea9658fb268a" }
+  "which-key.nvim": { "branch": "main", "commit": "4433e5ec9a507e5097571ed55c02ea9658fb268a" },
+  "yuck.vim": { "branch": "master", "commit": "9b5e0370f70cc30383e1dabd6c215475915fe5c3" }
 }

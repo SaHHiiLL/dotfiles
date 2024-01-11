@@ -17,6 +17,7 @@ local M = {
         "cpp",
         "zig",
         "python",
+        "yuck",
       },
     },
   },
@@ -108,6 +109,9 @@ local M = {
   {
     "windwp/nvim-autopairs",
     enabled = false,
+  },
+  {
+    "elkowar/yuck.vim"
   }
 }
 

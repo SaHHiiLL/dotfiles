@@ -27,9 +27,8 @@ style = "SemiBold"
 program = "/usr/bin/zsh"
 
 [window]
-opacity = 0.8
+opacity = 1
 dynamic_padding=true
-blur = true
 
 [window.padding]
 x = 3

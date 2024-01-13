@@ -6,8 +6,15 @@
                                :height "30px"
                                :anchor "top center")
            :stacking "fg"
-           :reserve (struts :distance "40px" :side "top")
-           :windowtype "dock"
-           :wm-ignore false
-  "example content")
+           :windowtype "toolbar"
+            :wm-ignore: false 
+  "ksajd"
+  )
+
+(defwidget gre [?text name]
+  (box :orientation "horizontal"
+       :halign "center"
+    text
+    (button :onclick "notify-send 'Hello' 'Hello, ${name}'"
+      "Greet")))
 

@@ -55,6 +55,7 @@ local M = {
         "clangd-format",
         "jdtls",
         "pyright",
+        "css-lsp",
       },
     },
   },

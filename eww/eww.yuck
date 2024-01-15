@@ -1,20 +1,11 @@
-(defwindow example
+(defwindow topbar
            :monitor 0
            :geometry (geometry :x "0%"
-                               :y "110px"
-                               :width "90%"
+                               :y "20px"
                                :height "30px"
-                               :anchor "top center")
-           :stacking "fg"
-           :windowtype "toolbar"
-            :wm-ignore: false 
-  "ksajd"
-  )
-
-(defwidget gre [?text name]
-  (box :orientation "horizontal"
-       :halign "center"
-    text
-    (button :onclick "notify-send 'Hello' 'Hello, ${name}'"
-      "Greet")))
+                               :width "90px") 
+           :staticking "fg"
+           :windowtype "dock"
+           :wm-ignore false
+  "lkjha£")
 

@@ -13,7 +13,7 @@ vim.opt.scrolloff = 8
 vim.opt.smartindent = true
 vim.opt.cursorline = true
 
-vim.opt.wrap = false
+vim.opt.wrap = true
 vim.api.nvim_set_option("clipboard", "unnamed")
 
 -- disable netrw at the very start of your init.lua (strongly advised)
@@ -26,5 +26,3 @@ vim.opt.termguicolors = true
 -- vim.cmd.foldmethod = 'indent'
 -- set f
 -- oldmethod=indent
-
-

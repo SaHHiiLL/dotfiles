@@ -1,3 +1,5 @@
 zsh-syntax-highlighting
 Config.yml
 dotfile_manager
+install/target
+install/Cargo.lock

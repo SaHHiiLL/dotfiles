@@ -4,4 +4,4 @@ A minimal i3 Setup
 
 # Screenshot
 
-![My Setup](./screenshots/main.png)
+![My Setup](../screenshots/main.png)

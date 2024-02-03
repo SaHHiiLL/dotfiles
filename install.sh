@@ -12,8 +12,4 @@ makepkg -si
 echo "Using Paru to install System Packages"
 paru -Syu $(cat ./packages.txt)
 
-config="configs"
-# Loop through files in the target directory
-for file in "$config"/*; do
-  echo $file
-done
+echo "Installed All the packages -- to link the dot files run the command `stow .`"

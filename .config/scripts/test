@@ -1,0 +1,13 @@
+#!/bin/bash
+
+
+hello() {
+list=$(trash list | fzf --multi)
+if [[ -n $list ]]; then
+    echo $list | awk '{$1=$1;print}' | rev | cut -d ' ' -f1 | rev | xargs trash restore --match=exact --force
+else
+    echo "Aborted"
+fi
+}
+
+hello

@@ -115,7 +115,17 @@ local M = {
   },
   {
     "elkowar/yuck.vim"
+  },
+  {
+    'mrcjkb/rustaceanvim',
+    version = '^4', -- Recommended
+    ft = { 'rust' },
+  },
+  {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
   }
+
 }
 
 return M

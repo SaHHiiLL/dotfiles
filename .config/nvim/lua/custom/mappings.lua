@@ -5,18 +5,20 @@ local M = {}
 M.telescope = {
   plugin = true,
   n = {
-    ["<leader>tf"] = { "<cmd>Telescope find_files<cr>", "File files" },
-    ["<leader>ts"] = { "<cmd>Telescope spell_suggest<cr>", "spell suggest" },
-    ["<leader>tg"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
-    ["<leader>th"] = { "<cmd> Telescope help_tags <CR>", "Help page" },
-    ["<leader>to"] = { "<cmd> Telescope oldfiles <CR>", "Find oldfiles" },
+    ["<leader>tf"] = { "<cmd>Telescope find_files<CR>", "File files" },
+    ["<leader>ts"] = { "<cmd>Telescope spell_suggest<CR>", "spell suggest" },
+    ["<leader>tg"] = { "<cmd>Telescope live_grep<CR>", "Live grep" },
+    ["<leader>th"] = { "<cmd>Telescope help_tags<CR>", "Help page" },
+    ["<leader>to"] = { "<cmd>Telescope oldfiles<CR>", "Find oldfiles" },
+
+    ["<leader>lr"] = { "<cmd>Telescope lsp_references<CR>", "LSP references" },
+    ["<leader>li"] = { "<cmd>Telescope lsp_implementations<CR>", "Impls" },
+
     -- git
-    ["<leader>tgc"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },
+    ["<leader>gc"] = { "<cmd>Telescope git_commits<CR>", "Git commits" },
 
     -- theme switcher
-    ["<leader>tl"] = { "<cmd> Telescope themes <CR>", "Nvchad themes" },
-
-    ["<leader>tba"] = { "<cmd> Telescope marks <CR>", "telescope bookmarks" },
+    ["<leader>tl"] = { "<cmd>Telescope themes<CR>", "Nvchad themes" },
   },
 }
 
@@ -26,7 +28,7 @@ M.lspconfig = {
     ["<leader>lh"] = { vim.lsp.buf.hover, "lsp hover" },
     ["<leader>ld"] = { vim.diagnostic.open_float, "lsp diagnostic" },
     ["<leader>la"] = { vim.lsp.buf.code_action, "quick action" },
-    ["<leader>lr"] = { vim.lsp.buf.rename, "lsp rename" },
+    ["<leader>lp"] = { vim.lsp.buf.rename, "lsp rename" },
     ["<leader>lu"] = { vim.lsp.buf.references, "lsp references" },
     ["<leader>lf"] = {
       function()

@@ -3,7 +3,7 @@ require "custom.settings"
 local M = {}
 
 M.ui = {
-  theme = "catppuccin",
+  theme = "gruvchad",
   nvdash = {
     load_on_startup = true,
 

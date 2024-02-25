@@ -125,6 +125,10 @@ local M = {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
   },
+  {
+    "xiyaowong/transparent.nvim",
+    lazy = false,
+  },
 }
 
 return M

@@ -1,0 +1,2 @@
+#!/bin/env bash
+/home/Sahil/GitClones/lutgen-rs/target/release/lutgen apply -p catppuccin-mocha $1 -o /home/Sahil/dotfile/.config/wallpaper

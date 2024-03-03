@@ -236,7 +236,9 @@ client.placeholder      #000000 #0C0C0C     #FFFFFF     #000000     #0C0C0C
 client.background       #FFFFFF
 
 exec_always --no-startup-id flameshot
-bindsym --release Print exec --no-startup-id flameshot gui
+# bindsym Print exec --no-startup-id flameshot full 
+bindsym Print exec maim -s -u | xclip -selection clipboard -t image/png -i
+
 
 exec --no-startup-id gnome-settings-daemon
 #start wifi

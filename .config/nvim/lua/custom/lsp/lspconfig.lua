@@ -13,29 +13,6 @@ local servers = {
   "rust_analyzer",
 }
 
-lspconfig.clangd.setup {
-  on_attach = function(client, bufnr)
-    client.server_capabilities.signatureHelpProvider = false
-    on_attach(client, bufnr)
-  end,
-  capabilities = capabilities,
-}
-
--- Using rust tools now
---
--- lspconfig.rust_analyzer.setup {
---   on_attach = on_attach,
---   capabilities = capabilities,
---   filetypes = { "rust" },
---   root_dir = utils.root_pattern "Cargo.toml",
---   settings = {
---     ["rust-analyzer"] = {
---       cargo = {
---         allFeatures = true,
---       },
---     },
---   },
--- }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -43,3 +20,14 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   }
 end
+lspconfig.clangd.setup {
+  cmd = {
+    "clangd",
+    "--fallback-style=webkit"
+  },
+  on_attach = function(client, bufnr)
+    client.server_capabilities.signatureHelpProvider = false
+    on_attach(client, bufnr)
+  end,
+  capabilities = capabilities,
+}

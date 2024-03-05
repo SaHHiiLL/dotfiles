@@ -1,0 +1,91 @@
+@import "cat.css";
+
+* {
+  border: none;
+  min-height: 0;
+  box-shadow: none;
+  font-family: Jetbrains Mono;
+  font-weight: bold;
+  text-shadow: none;
+  font-size: 14px;
+}
+
+#waybar {
+  background: @waybar-bg;
+}
+
+#workspaces {
+  background: @bg;
+  margin: 4px 4px;
+  padding: 6px 3px;
+  border-radius: 16px;
+  color: @workspaces-al;
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+
+#workspaces button {
+  padding: 0px 0.5px;
+  margin: 0px 3px;
+  border-radius: 16px;
+  color: transparent;
+  background: @workspaces-btn;
+  transition: all 0.3s ease-in-out;
+}
+
+#workspaces button.active {
+  background-color: @workspaces-active-bg;
+  color: @workspaces-active-cl;
+  border-radius: 16px;
+  min-width: 50px;
+  background-size: 400% 400%;
+  transition: all 0.3s ease-in-out;
+}
+
+#workspaces button:hover {
+  background-color: #f5f5f5;
+  color: #11111b;
+  border-radius: 16px;
+  min-width: 50px;
+  background-size: 400% 400%;
+}
+
+#custom-arch {
+  background: @bg;
+  padding: 2px 11px 2px 14px;
+  margin: 4px;
+  border-radius: 10px;
+  margin-bottom: 7px;
+  margin-top: 7px;
+}
+
+#custom-update{
+  background: @bg;
+  padding: 2px 11px 2px 14px;
+  margin: 4px;
+  border-radius: 10px;
+  margin-bottom: 7px;
+  margin-top: 7px;
+}
+
+
+#custom-power {
+  background: @bg;
+  padding: 2px 14px 2px 11px;
+  margin: 4px;
+  border-radius: 10px;
+  margin-bottom: 7px;
+  margin-top: 7px;
+}
+
+#clock,
+#pulseaudio,
+#network {
+  margin: 4px;
+  border-radius: 10px;
+  margin-bottom: 7px;
+  margin-top: 7px;
+  padding: 4px 10px 4px 10px;
+  background: @bg;
+  color: @cg;
+}

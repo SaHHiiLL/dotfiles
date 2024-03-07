@@ -76,3 +76,8 @@ xorg
 zsh-syntax-highlighting
 xf86-video-amdgpu
 google-chrome
+hyprland
+waybar
+wl-clipboard
+grim
+slurp

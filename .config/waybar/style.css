@@ -59,7 +59,7 @@
   margin-top: 7px;
 }
 
-#custom-update{
+#custom-update {
   background: @bg;
   padding: 2px 11px 2px 14px;
   margin: 4px;
@@ -67,7 +67,6 @@
   margin-bottom: 7px;
   margin-top: 7px;
 }
-
 
 #custom-power {
   background: @bg;

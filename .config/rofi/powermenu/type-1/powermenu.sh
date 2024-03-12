@@ -70,7 +70,7 @@ run_cmd() {
 			amixer set Master mute
 			systemctl suspend
 		elif [[ $1 == '--logout' ]]; then
-      if [[ $XDG_CURRENT_DESKTOP == "SWAY" ]]; then
+      if [[ $XDG_SESSION_TYPE == "wayland" ]]; then
         hyprctl dispatch exit
       else
         i3-msg exit

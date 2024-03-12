@@ -78,6 +78,10 @@
 }
 
 #clock,
+#disk,
+#cpu,
+#temperature,
+#memory,
 #pulseaudio,
 #network {
   margin: 4px;

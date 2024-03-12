@@ -129,6 +129,10 @@ local M = {
     "xiyaowong/transparent.nvim",
     lazy = false,
   },
+  {
+    "github/copilot.vim",
+    lazy = false,
+  },
 }
 
 return M

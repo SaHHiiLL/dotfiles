@@ -8,6 +8,8 @@
   font-weight: bold;
   text-shadow: none;
   font-size: 14px;
+
+  
 }
 
 #waybar {
@@ -77,6 +79,7 @@
   margin-top: 7px;
 }
 
+
 #clock,
 #disk,
 #cpu,
@@ -91,4 +94,14 @@
   padding: 4px 10px 4px 10px;
   background: @bg;
   color: @cg;
+}
+
+#cpu.warning {
+  color: @warning-text;
+  background: @warning-bg;
+}
+#cpu.critical,
+#temperature.critical {
+  background: @critial-bg;
+  color: @warning-text;
 }

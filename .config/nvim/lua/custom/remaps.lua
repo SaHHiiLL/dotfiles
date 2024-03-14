@@ -17,7 +17,6 @@ vim.keymap.set("t", "<C-x>", "<C-\\><C-n>")
 vim.keymap.set("v", "<leader>/", "gc")
 
 vim.keymap.set("v", "<leader>lca", vim.lsp.buf.code_action)
-
 -- To copy paste for neovim to system clipboard
 -- must have xclip install for x11 or wl-copy for wayland
 vim.api.nvim_set_option("clipboard", "unnamed")

@@ -133,6 +133,10 @@ local M = {
     "github/copilot.vim",
     lazy = false,
   },
+  {
+    "p00f/clangd_extensions.nvim",
+    lazy = true,
+  },
 }
 
 return M

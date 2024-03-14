@@ -24,23 +24,18 @@ M.telescope = {
     ["<leader>ls"] = { "<cmd>Telescope lsp_workspace_symbols<CR>", "Workspace symbols" },
     ["<leader>lF"] = { "<cmd>Telescope lsp_document_diagnostics<CR>", "Document diagnostics" },
     ["<leader>lf"] = { "<cmd>Telescope lsp_workspace_diagnostics<CR>", "Workspace diagnostics" },
+
   },
 }
 
-M.lspconfig = {
-  plugin = true,
-  n = {
-    ["<leader>lh"] = { vim.lsp.buf.hover, "lsp hover" },
-    ["<leader>la"] = { vim.lsp.buf.code_action, "quick action" },
-    ["<leader>lp"] = { vim.lsp.buf.rename, "lsp rename" },
-    ["<leader>lf"] = {
-      function()
-        vim.lsp.buf.format { async = true }
-      end,
-      "lsp format",
-    },
-  },
-}
+-- M.lspconfig = {
+--   plugin = true,
+--   n = {
+--     ["<leader>lh"] = { vim.lsp.buf.hover, "lsp hover" },
+--     ["<leader>la"] = { vim.lsp.buf.code_action, "quick action" },
+--     ["<leader>lp"] = { vim.lsp.buf.rename, "lsp rename" },
+--   },
+-- }
 
 M.general = {
   v = {
@@ -48,6 +43,16 @@ M.general = {
     ["K"] = { ":m '<-2<CR>gv=gv", "Move things Down" },
   },
   n = {
+     -- LSP
+    ["<leader>ln"] = {
+      function()
+        vim.lsp.buf.format { async = true }
+      end,
+      "lsp format",
+    },
+    ["<leader>la"] = { vim.lsp.buf.code_action, "Quick Actions" },
+
+
     ["<leader>e"] = { vim.cmd.NvimTreeToggle, "Tree Toggle" },
     ["<leader>o"] = { vim.cmd.NvimTreeFocus, "Tree Focus" },
 
@@ -81,5 +86,8 @@ M.general = {
 --     },
 --   },
 -- }
+
+-- only work if file is of type C
+  vim.keymap.set({'n', 'v', 'i'}, "<F5>", "<cmd>!./build.sh<CR>", {desc = "Build C file"});
 
 return M

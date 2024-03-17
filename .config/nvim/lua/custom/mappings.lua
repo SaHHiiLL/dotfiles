@@ -24,7 +24,6 @@ M.telescope = {
     ["<leader>ls"] = { "<cmd>Telescope lsp_workspace_symbols<CR>", "Workspace symbols" },
     ["<leader>lF"] = { "<cmd>Telescope lsp_document_diagnostics<CR>", "Document diagnostics" },
     ["<leader>lf"] = { "<cmd>Telescope lsp_workspace_diagnostics<CR>", "Workspace diagnostics" },
-
   },
 }
 
@@ -60,6 +59,11 @@ M.general = {
     ["<leader>x"] = { "<cmd>!chmod +x %<CR>", "Make Executable" },
     ["<leader>U"] = { vim.cmd.UndotreeToggle, "Open undotree" },
     ["<C-a>"] = { "gg^vG$" },
+
+    -- open terminal with lazygit
+    ["<leader>ga"] = { function ()
+      require("nvterm.terminal").send("lazygit", "float") -- the 2nd argument i.e direction is optional
+    end },
   },
   x = {
     ["<leader>p"] = { [["_dP]] },

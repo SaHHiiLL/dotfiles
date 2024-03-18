@@ -2,7 +2,7 @@ local M = {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
-      nsure_installed = {
+      ensure_installed = {
         -- defaults
         "vim",
         "lua",
@@ -137,6 +137,10 @@ local M = {
     "p00f/clangd_extensions.nvim",
     lazy = true,
   },
+  {
+    "NeogitOrg/neogit",
+    lazy = true,
+  }
 }
 
 return M

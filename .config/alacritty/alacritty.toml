@@ -25,9 +25,10 @@ program = "/usr/bin/zsh"
 [window]
 opacity = 0.95
 dynamic_padding=true
+blur = true
 
 [window.padding]
-x = 3
-y = 3
+x = 20
+y = 20
 
 

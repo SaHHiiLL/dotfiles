@@ -5,9 +5,16 @@ style_path=$dir/$theme
 
 
 rofi_cmd() {
-	rofi -dmenu \
-    -p "" \
-		-theme $style_path 
+
+    if [ $XDG_CURRENT_DESKTOP = "Hyprland" ]; then
+        /home/Sahil/GitClones/rofi/build/rofi -dmenu \
+        -p "" \
+        -theme $style_path 
+    else
+        rofi -dmenu \
+        -p "" \
+        -theme $style_path 
+    fi
 }
 
 input=$(rofi_cmd)

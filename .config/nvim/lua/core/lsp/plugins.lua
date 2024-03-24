@@ -3,11 +3,33 @@
 local M = {
     {
         "nvim-treesitter/nvim-treesitter",
+        lazy = true,
         build = ":TSUpdate",
         config = function()
             local opts = require("core.lsp.treesitter")
             require'nvim-treesitter.configs'.setup(opts)
         end
+    },
+    {
+        "hrsh7th/nvim-cmp",
+        dependencies = {
+            "hrsh7th/cmp-nvim-lsp"
+        },
+        opts = function()
+            return require("core.lsp.cmp")
+        end,
+        config = function(_, opts)
+            local cmp = require("cmp")
+            cmp.setup(opts)
+            cmp.setup.cmdline({ '/', '?' }, {
+                mapping = cmp.mapping.preset.cmdline(),
+                sources = {
+                    { name = 'buffer' }
+                }
+            })
+
+        end
+
     },
     {
         "neovim/nvim-lspconfig",

@@ -26,81 +26,102 @@ logout=' Logout'
 yes=' Yes'
 no=' No'
 
-# Rofi CMD
+
 rofi_cmd() {
-	rofi -dmenu \
-		-p "$host" \
-		-mesg "Uptime: $uptime" \
-		-theme ${dir}/${theme}.rasi
+    # TODO: rather than hardcoding the path to rofi, i can use a seperate script on starup for both x11 and wayland to set path to rofi
+    if [ $XDG_CURRENT_DESKTOP = "Hyprland" ]; then
+        /home/Sahil/GitClones/rofi/build/rofi -dmenu \
+            -p "$host" \
+            -mesg "Uptime: $uptime" \
+            -theme ${dir}/${theme}.rasi
+    else
+        rofi -dmenu \
+            -p "$host" \
+            -mesg "Uptime: $uptime" \
+            -theme ${dir}/${theme}.rasi
+    fi
 }
 
 # Confirmation CMD
 confirm_cmd() {
-	rofi -theme-str 'window {location: center; anchor: center; fullscreen: false; width: 250px;}' \
-		-theme-str 'mainbox {children: [ "message", "listview" ];}' \
-		-theme-str 'listview {columns: 2; lines: 1;}' \
-		-theme-str 'element-text {horizontal-align: 0.5;}' \
-		-theme-str 'textbox {horizontal-align: 0.5;}' \
-		-dmenu \
-		-p 'Confirmation' \
-		-mesg 'Are you Sure?' \
-		-theme ${dir}/${theme}.rasi
-}
+
+    if [ $XDG_CURRENT_DESKTOP = "Hyprland" ]; then
+        /home/Sahil/GitClones/rofi/build/rofi -theme-str 'window {location: center; anchor: center; fullscreen: false; width: 250px;}' \
+            -theme-str 'mainbox {children: [ "message", "listview" ];}' \
+            -theme-str 'listview {columns: 2; lines: 1;}' \
+            -theme-str 'element-text {horizontal-align: 0.5;}' \
+            -theme-str 'textbox {horizontal-align: 0.5;}' \
+            -dmenu \
+            -p 'Confirmation' \
+            -mesg 'Are you Sure?' \
+            -theme ${dir}/${theme}.rasi
+    else
+        rofi -theme-str 'window {location: center; anchor: center; fullscreen: false; width: 250px;}' \
+            -theme-str 'mainbox {children: [ "message", "listview" ];}' \
+            -theme-str 'listview {columns: 2; lines: 1;}' \
+            -theme-str 'element-text {horizontal-align: 0.5;}' \
+            -theme-str 'textbox {horizontal-align: 0.5;}' \
+            -dmenu \
+            -p 'Confirmation' \
+            -mesg 'Are you Sure?' \
+            -theme ${dir}/${theme}.rasi
+    fi
+    }
 
 # Ask for confirmation
 confirm_exit() {
-	echo -e "$yes\n$no" | confirm_cmd
+    echo -e "$yes\n$no" | confirm_cmd
 }
 
 # Pass variables to rofi dmenu
 run_rofi() {
-	echo -e "$lock\n$suspend\n$logout\n$reboot\n$shutdown" | rofi_cmd
+    echo -e "$lock\n$suspend\n$logout\n$reboot\n$shutdown" | rofi_cmd
 }
 
 # Execute Command
 run_cmd() {
-	selected="$(confirm_exit)"
-	if [[ "$selected" == "$yes" ]]; then
-		if [[ $1 == '--shutdown' ]]; then
-			systemctl poweroff
-		elif [[ $1 == '--reboot' ]]; then
-			sudo systemctl reboot
-		elif [[ $1 == '--suspend' ]]; then
-			mpc -q pause
-			amixer set Master mute
-			systemctl suspend
-		elif [[ $1 == '--logout' ]]; then
-      if [[ $XDG_SESSION_TYPE == "wayland" ]]; then
-        hyprctl dispatch exit
-      else
-        i3-msg exit
-      fi
-		fi
-	else
-		exit 0
-	fi
+    selected="$(confirm_exit)"
+    if [[ "$selected" == "$yes" ]]; then
+        if [[ $1 == '--shutdown' ]]; then
+            systemctl poweroff
+        elif [[ $1 == '--reboot' ]]; then
+            sudo systemctl reboot
+        elif [[ $1 == '--suspend' ]]; then
+            mpc -q pause
+            amixer set Master mute
+            systemctl suspend
+        elif [[ $1 == '--logout' ]]; then
+            if [ $XDG_CURRENT_DESKTOP = "Hyprland" ]; then
+                hyprctl dispatch exit
+            else
+                i3-msg exit
+            fi
+        fi
+    else
+        exit 0
+    fi
 }
 
 # Actions
 chosen="$(run_rofi)"
 case ${chosen} in
     $shutdown)
-		run_cmd --shutdown
+        run_cmd --shutdown
         ;;
     $reboot)
-		run_cmd --reboot
+        run_cmd --reboot
         ;;
     $lock)
-		if [[ -x '/usr/bin/betterlockscreen' ]]; then
-			betterlockscreen -l
-		elif [[ -x '/usr/bin/i3lock' ]]; then
-			i3lock
-		fi
+        if [[ -x '/usr/bin/betterlockscreen' ]]; then
+            betterlockscreen -l
+        elif [[ -x '/usr/bin/i3lock' ]]; then
+            i3lock
+        fi
         ;;
     $suspend)
-		run_cmd --suspend
+        run_cmd --suspend
         ;;
     $logout)
-		run_cmd --logout
+        run_cmd --logout
         ;;
 esac

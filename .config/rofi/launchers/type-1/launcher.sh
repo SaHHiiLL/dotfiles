@@ -15,6 +15,12 @@ dir="$HOME/.config/rofi/launchers/type-1"
 theme='style-6'
 
 ## Run
-rofi \
-    -show drun \
-    -theme ${dir}/${theme}.rasi
+if [ $XDG_CURRENT_DESKTOP = "Hyprland" ]; then
+    /home/Sahil/GitClones/rofi/build/rofi \
+        -show drun \
+        -theme ${dir}/${theme}.rasi
+else
+    rofi \
+        -show drun \
+        -theme ${dir}/${theme}.rasi
+fi

@@ -1,0 +1,36 @@
+# Aliases
+# =======
+#
+# This file contains all the aliases that I use in my shell
+#
+# Author:  SaHHiiLL
+# Date: March 24, 2024
+#
+#
+# Aliass for ls -- converts calls to ls to exa
+alias l="exa -lh"
+alias la="exa -lha"
+alias ll="exa -l"
+alias ls="exa"
+
+# Aliases for custom scripts
+alias o="$HOME/.config/scripts/faster_cd/fzfcd.sh"
+
+# Aliases for git
+alias gc="git commit -m"
+alias ga="git add"
+alias gap="git add --patch"
+alias gp="git push"
+
+# Aliases for nvim
+alias nv="nvim"
+alias nvchad='NVIM_APPNAME=nvim-nvchad nvim'
+
+# Aliases for cargo
+alias crun='cargo run'
+alias ctest='cargo test'
+alias cbuild='cargo build'
+alias ccheck='cargo check'
+alias cdoc='cargo doc'
+alias cfmt='cargo fmt'
+alias cfix='cargo fix'

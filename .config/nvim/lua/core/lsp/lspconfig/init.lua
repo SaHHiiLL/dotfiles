@@ -1,3 +1,4 @@
+require("core.lsp.lspconfig.lspmappings")
 local M = {}
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
@@ -36,9 +37,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 
-require'lspconfig'.lua_ls.setup {
+local lspc = require('lspconfig')
+lspc.lua_ls.setup {
   on_init = function(client)
-    local path = "/home/Sahil/.local/share/nvim-custom/mason/bin/lua-language-server"
+    local path = "/home/Sahil/.local/share/nvim/mason/bin/lua-language-server"
     if vim.loop.fs_stat(path..'/.luarc.json') or vim.loop.fs_stat(path..'/.luarc.jsonc') then
       return
     end
@@ -64,8 +66,18 @@ require'lspconfig'.lua_ls.setup {
     })
   end,
   settings = {
-    Lua = {}
+    Lua = {
+        diagnostics = {
+        globals = { 'vim' }
+      }
+    }
   }
 }
+
+
+lspc.clangd.setup({})
+
+
+
 
 return M

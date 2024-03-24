@@ -10,4 +10,4 @@ vim.opt.incsearch = true
 vim.opt.scrolloff = 8
 vim.opt.smartindent = true
 vim.opt.cursorline = true
-vim.opt.wrap = false
+vim.opt.wrap = true

@@ -34,3 +34,7 @@ alias ccheck='cargo check'
 alias cdoc='cargo doc'
 alias cfmt='cargo fmt'
 alias cfix='cargo fix'
+
+
+## Alias for random application
+alias debugger="~/GitClones/gf/gf2"

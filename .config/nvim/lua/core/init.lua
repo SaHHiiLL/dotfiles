@@ -20,3 +20,21 @@ require("core.general.settings")
 local plugs = require("core.plugins")
 require("lazy").setup(plugs, {})
 
+-- alacritty cmd "alacritty msg config window.padding.x=0 window.padding.y=0 -w $ALACRITTY_WINDOW_ID"
+function decreasePadding()
+    vim.fn.system("alacritty msg config window.padding.x=0 window.padding.y=0 -w $ALACRITTY_WINDOW_ID")
+end
+
+function increasePadding()
+    vim.fn.system("alacritty msg config window.padding.x=20 window.padding.y=20 -w $ALACRITTY_WINDOW_ID")
+end
+
+vim.cmd[[
+  augroup ChangeAlacrittyPadding
+   au! 
+   au VimEnter * lua decreasePadding()
+   au VimLeavePre * lua increasePadding()
+  augroup END 
+]]
+
+vim.cmd.colorscheme "base16-ayu-mirage"

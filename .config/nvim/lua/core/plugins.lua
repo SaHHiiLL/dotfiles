@@ -23,8 +23,12 @@ local M = {
     {
         "nvim-telescope/telescope.nvim",
         dependencies = { 'nvim-lua/plenary.nvim' },
-        config = function()
+        opts = function()
+            return require("core.plugin_config.telescope")
+        end,
+        config = function(_, opts)
             require("core.plugin_config.telescope")
+            require("telescope").setup(opts)
         end
     },
 
@@ -39,13 +43,6 @@ local M = {
     {
         "akinsho/toggleterm.nvim",
         config = true,
-    },
-    {
-        "github/copilot.vim"
-    },
-    {
-        "github/copilot.vim",
-        lazy = false,
     },
     {
         "p00f/clangd_extensions.nvim",
@@ -104,6 +101,10 @@ local M = {
         },
         opts = {},
         cmd = { 'MCstart', 'MCvisual', 'MCclear', 'MCpattern', 'MCvisualPattern', 'MCunderCursor' },
+    },
+    {
+        "L3MON4D3/LuaSnip",
+        build = "make install_jsregexp"
     }
 
 }

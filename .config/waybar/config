@@ -1,20 +1,24 @@
 {
-  "layer": "bottom",
+  "layer": "top",
   "position": "top",
 
-  "modules-left": ["custom/arch", "hyprland/workspaces"],
+  "modules-center": ["hyprland/workspaces"],
 
-  "modules-center": ["clock", "tray"],
+  "modules-left": [
+      "custom/power",
+      "clock",
+      "tray",
+  ],
 
   "modules-right": [
-    "pulseaudio",
-    "network",
-    "disk",
-    "cpu",
-    "memory",
-    "temperature",
-    "custom/update",
-    "custom/power"
+      "pulseaudio",
+      "temperature",
+
+      "network",
+      "disk",
+      "cpu",
+      "memory",
+      "custom/update",
   ],
 
   "memory": {

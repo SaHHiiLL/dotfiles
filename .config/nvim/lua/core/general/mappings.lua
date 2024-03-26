@@ -1,5 +1,7 @@
 local u = require("core.utils")
 
+u.Nmap("<leader>tc", "<cmd>Telescope colorscheme <cr>", "Choose Color")
+
 vim.g.mapleader = " "
 
 u.Nmap("<A-i>", "<cmd>ToggleTerm direction=float<cr>", "Open Floating Term")

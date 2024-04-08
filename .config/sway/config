@@ -190,7 +190,6 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-bindsym $mod+Print exec --no-startup-id grim -g "$(slurp -d)" - | wl-copy
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -246,9 +245,13 @@ client.placeholder      #000000 #0C0C0C     #FFFFFF     #000000     #0C0C0C
 client.background       #FFFFFF
 
 exec_always --no-startup-id flameshot
-# bindsym Print exec --no-startup-id flameshot full 
-bindsym Print exec maim -s -u | xclip -selection clipboard -t image/png -i
 
+## -t indicated no compression on png
+bindsym $mod+Print exec --no-startup-id grim -l 0 -c -g "$(slurp -d)" - | wl-copy
+#Captures the whole screen WITH the cursor
+bindsym Print exec grim -l 0 -c -g "0,0 1920x1080"
+#Captures the whole screen WITHOUT the cursor
+bindsym Shift+Print exec grim -l 0 -g "0,0 1920x1080"
 
 exec --no-startup-id gnome-settings-daemon
 #start wifi

@@ -1,10 +1,13 @@
-My Personal Dotfiles
+# My Dotfiles
 
-A minimal i3 Setup
 
-# Screenshot
+## Screenshot
+#### A minimal i3 Setup
+![My i3 Setup](../screenshots/i3.png)
 
-![My Setup](../screenshots/main.png)
+## Screenshot
+#### A not so minimal sway Setup
+![My i3 Setup](../screenshots/sway.png)
 
 ## Install
 

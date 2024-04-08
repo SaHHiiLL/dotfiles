@@ -1,4 +1,4 @@
-@define-color waybar-bg rgba(30, 30, 46, 1);
+@define-color waybar-bg rgba(17, 17, 27, 1);
 
 @define-color workspaces-cl #cba6f7;
 @define-color workspaces-btn rgba(17,17,27,1);
@@ -9,7 +9,7 @@
 @define-color workspaces-hover-bg #b4befe;
 @define-color workspaces-hover-cl #11111b;
 
-@define-color bg #25253a;
+@define-color bg #181825;
 @define-color cg #cdd6f4;
 
 @define-color warning-bg #fab387;

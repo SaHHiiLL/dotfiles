@@ -2,7 +2,7 @@
   "layer": "top",
   "position": "top",
 
-  "modules-center": ["hyprland/workspaces"],
+  "modules-center": ["sway/workspaces"],
 
   "modules-left": [
       "custom/power",
@@ -60,16 +60,9 @@
     "tooltip": false
   },
 
-  "hyprland/workspaces": {
-    "active-only": false,
-    "all-outputs": true,
-    "disable-scroll": false,
-    "format": "{name}",
-    "on-click": "activate",
-    "on-scroll-down": "hyprctl dispatch workspace e+1",
-    "on-scroll-up": "hyprctl dispatch workspace e-1"
-  },
-
+    "sway/workspaces": {
+        
+    },
   "tray": {
     "icon-size": 21,
     "spacing": 10

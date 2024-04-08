@@ -29,7 +29,7 @@ no=' No'
 
 rofi_cmd() {
     # TODO: rather than hardcoding the path to rofi, i can use a seperate script on starup for both x11 and wayland to set path to rofi
-    if [ $XDG_CURRENT_DESKTOP = "Hyprland" ]; then
+    if [ $XDG_CURRENT_DESKTOP = "Sway" ]; then
         /home/Sahil/GitClones/rofi/build/rofi -dmenu \
             -p "$host" \
             -mesg "Uptime: $uptime" \
@@ -45,7 +45,7 @@ rofi_cmd() {
 # Confirmation CMD
 confirm_cmd() {
 
-    if [ $XDG_CURRENT_DESKTOP = "Hyprland" ]; then
+    if [ $XDG_CURRENT_DESKTOP = "Sway" ]; then
         /home/Sahil/GitClones/rofi/build/rofi -theme-str 'window {location: center; anchor: center; fullscreen: false; width: 250px;}' \
             -theme-str 'mainbox {children: [ "message", "listview" ];}' \
             -theme-str 'listview {columns: 2; lines: 1;}' \
@@ -91,8 +91,8 @@ run_cmd() {
             amixer set Master mute
             systemctl suspend
         elif [[ $1 == '--logout' ]]; then
-            if [ $XDG_CURRENT_DESKTOP = "Hyprland" ]; then
-                hyprctl dispatch exit
+            if [ $XDG_CURRENT_DESKTOP = "Sway" ]; then
+                swaymsg exit
             else
                 i3-msg exit
             fi

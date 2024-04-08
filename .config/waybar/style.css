@@ -27,24 +27,27 @@
 }
 
 #workspaces button {
-  padding: 0px 0.5px;
+  padding: 2px 2px;
   margin: 0px 3px;
   border-radius: 16px;
-  color: transparent;
+  color: #b4befe;
+  opacity: 0.5;
   background: @workspaces-btn;
   transition: all 0.3s ease-in-out;
 }
 
-#workspaces button.active {
+#workspaces button.focused {
   background-color: @workspaces-active-bg;
   color: @workspaces-active-cl;
   border-radius: 16px;
   min-width: 50px;
   background-size: 400% 400%;
   transition: all 0.3s ease-in-out;
+  opacity: 1;
 }
 
 #workspaces button:hover {
+    opacity: 1;
   background-color: #f5f5f5;
   color: #11111b;
   border-radius: 16px;

@@ -36,7 +36,11 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 # Setting keyboard layouts
-exec_always --no-startup-id  setxkbmap -layout gb 
+# exec_always --no-startup-id  setxkbmap -layout gb 
+
+input "1133:49977:Logitech_PRO_Gaming_Keyboard" {
+    xkb_layout gb
+}
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -50,13 +54,13 @@ floating_modifier $mod
 
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id alacritty 
+bindsym $mod+Return exec --no-startup-id alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # restart polybar
-bindsym $mod+Shift+p exec --no-startup-id pkill -x polybar && polybar
+bindsym $mod+Shift+p exec --no-startup-id pkill -x waybar && waybar
 
 
 bindsym $mod+d exec --no-startup-id ~/.config/rofi/launchers/type-1/launcher.sh
@@ -186,6 +190,7 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+bindsym $mod+Print exec --no-startup-id grim -g "$(slurp -d)" - | wl-copy
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -194,10 +199,12 @@ bindsym $mod+r mode "resize"
 #}
 
 # starting polybar
-exec --no-startup-id polybar
+exec --no-startup-id waybar
 # setting background
-exec --no-startup-id nitrogen --restore --set-auto
-#starting notification deamon
+
+exec --no-startup-id swaybg --image ~/.config/wallpaper/gojocat.png
+
+# starting notification deamon
 exec --no-startup-id dnust -verbosity info 
 #Start picom
 exec_always --no-startup-id picom --no-fading-openclose --config ~/.config/picom.conf
@@ -257,5 +264,8 @@ gaps inner 7
 default_border pixel 1
 default_floating_border pixel 1
 for_window [class="^.*"] border pixel 1
+
+blur enable
+shadows enable
 
 

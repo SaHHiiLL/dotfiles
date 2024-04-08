@@ -81,3 +81,5 @@ waybar
 wl-clipboard
 grim
 slurp
+gvfs
+udisks2

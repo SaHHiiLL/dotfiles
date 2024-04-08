@@ -37,4 +37,4 @@ vim.cmd[[
   augroup END 
 ]]
 
-vim.cmd.colorscheme "base16-ayu-mirage"
+vim.cmd.colorscheme "catppuccin-mocha"

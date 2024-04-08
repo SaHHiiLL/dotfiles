@@ -25,6 +25,7 @@ local M = {
     "zig",
     "python",
     "yuck",
+    "hyprlang",
   },
 }
 return M

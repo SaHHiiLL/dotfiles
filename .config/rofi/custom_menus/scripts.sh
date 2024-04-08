@@ -6,7 +6,7 @@ style_path=$dir/$theme
 
 rofi_cmd() {
 
-    if [ $XDG_CURRENT_DESKTOP = "Hyprland" ]; then
+    if [ $XDG_CURRENT_DESKTOP = "sway" ]; then
         /home/Sahil/GitClones/rofi/build/rofi -dmenu \
         -p "" \
         -theme $style_path 

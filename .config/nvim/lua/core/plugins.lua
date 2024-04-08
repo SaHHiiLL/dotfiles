@@ -107,9 +107,6 @@ local M = {
         build = "make install_jsregexp"
     },
     {
-        "github/copilot.vim",
-    },
-    {
         "nvim-telescope/telescope-file-browser.nvim",
         dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
         config = function()

@@ -1,2 +1,3 @@
 #! /bin/bash
+source /home/Sahil/.config/sway/sway.profile.zsh
 exec sway -d 2>&1 | tee /tmp/sway.log

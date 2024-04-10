@@ -102,7 +102,7 @@
     color: @cg;
     border: 2;
     border-style: solid;
-    border-color: #313244;
+    border-color: rgba(137, 180, 250, 0.5);
 }
 
 #cpu.warning {

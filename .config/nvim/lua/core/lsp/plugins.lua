@@ -13,7 +13,8 @@ local M = {
     {
         "hrsh7th/nvim-cmp",
         dependencies = {
-            "hrsh7th/cmp-nvim-lsp"
+            "hrsh7th/cmp-nvim-lsp",
+            "https://codeberg.org/FelipeLema/cmp-async-path",
         },
         opts = function()
             return require("core.lsp.cmp")

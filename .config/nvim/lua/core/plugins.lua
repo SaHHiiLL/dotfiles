@@ -114,11 +114,39 @@ local M = {
         end
     },
     {
-        'stevearc/oil.nvim',
-        opts = {},
-        -- Optional dependencies
-        dependencies = { "nvim-tree/nvim-web-devicons" },
+        'goolord/alpha-nvim',
+        dependencies = {
+            'nvim-tree/nvim-web-devicons',
+            'nvim-lua/plenary.nvim',
+            'MunifTanjim/nui.nvim',
+            'MaximilianLloyd/ascii.nvim',
+        },
+        config = function ()
+            local alpha = require("alpha")
+            local dashboard = require("alpha.themes.dashboard")
+
+            -- Set header
+            dashboard.section.header.val = require("ascii").get_random_global()
+            -- Send config to alpha
+            alpha.setup(dashboard.opts)
+            -- Disable folding on alpha buffer
+            vim.cmd([[
+                autocmd FileType alpha setlocal nofoldenable
+            ]])
+        end
     },
+    -- {
+    --     'nvimdev/dashboard-nvim',
+    --     event = 'VimEnter',
+    --     dependencies = 	{ "MunifTanjim/nui.nvim", "MaximilianLloyd/ascii.nvim", 'nvim-tree/nvim-web-devicons' },
+    --
+    --     config = function()
+    --         local op = {
+    --             header = "lkjsda",
+    --         }
+    --         require("dashboard").setup(op)
+    --     end
+    -- },
     {
         'nvim-telescope/telescope-ui-select.nvim',
         config = function()
@@ -129,20 +157,6 @@ local M = {
                         require("telescope.themes").get_dropdown {
                             -- even more opts
                         }
-
-                        -- pseudo code / specification for writing custom displays, like the one
-                        -- for "codeactions"
-                        -- specific_opts = {
-                        --   [kind] = {
-                        --     make_indexed = function(items) -> indexed_items, width,
-                        --     make_displayer = function(widths) -> displayer
-                        --     make_display = function(displayer) -> function(e)
-                        --     make_ordinal = function(e) -> string
-                        --   },
-                        --   -- for example to disable the custom builtin "codeactions" display
-                        --      do the following
-                        --   codeactions = false,
-                        -- }
                     }
                 }
             }

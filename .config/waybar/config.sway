@@ -6,14 +6,14 @@
 
   "modules-left": [
       "custom/power",
+  "pulseaudio",
       "clock",
       "tray",
+      "cava",
   ],
 
   "modules-right": [
-      "pulseaudio",
       "temperature",
-
       "network",
       "disk",
       "cpu",

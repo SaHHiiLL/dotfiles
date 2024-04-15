@@ -34,7 +34,7 @@
     transition: all 0.3s ease-in-out;
 }
 
-#workspaces button.focused {
+#workspaces button.active {
     background-color: @workspaces-active-bg;
     color: @workspaces-active-cl;
     border-radius: 16px;
@@ -81,13 +81,13 @@
     margin-top: 7px;
 }
 
+#pulseaudio,
 #cava,
 #clock,
 #disk,
 #cpu,
 #temperature,
 #memory,
-#pulseaudio,
 #custom-arch,
 #custom-update,
 #custom-power,

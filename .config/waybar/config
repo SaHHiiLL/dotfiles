@@ -5,11 +5,11 @@
         "modules-center": ["hyprland/workspaces"],
 
         "modules-left": [
-        "custom/power",
-        "clock",
-        "tray",
-        "cava",
-        "pulseaudio",
+            "custom/power",
+            "clock",
+            "tray",
+            "pulseaudio",
+            "cava",
         ],
 
         "modules-right": [
@@ -60,8 +60,14 @@
             "tooltip": false
         },
 
-        "cava": {
-            "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+    "cava": {
+        "autosense" : 1,
+        "bars": 14,
+        "bar_delimiter": 0,
+        "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+        "actions": {
+                   "on-click-right": "mode"
+                   }
         },
 
         "hyprland/workspaces": {

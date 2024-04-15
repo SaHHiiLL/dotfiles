@@ -29,11 +29,19 @@ function increasePadding()
     vim.fn.system("alacritty msg config window.padding.x=20 window.padding.y=20 -w $ALACRITTY_WINDOW_ID")
 end
 
+function removeOpacity()
+    vim.fn.system("alacritty msg config window.opacity=1 -w $ALACRITTY_WINDOW_ID")
+end
+
+function addOpacity()
+    vim.fn.system("alacritty msg config window.opacity=0.95 -w $ALACRITTY_WINDOW_ID")
+end
+
 vim.cmd[[
   augroup ChangeAlacrittyPadding
    au! 
-   au VimEnter * lua decreasePadding()
-   au VimLeavePre * lua increasePadding()
+   au VimEnter * lua removeOpacity()
+   au VimLeavePre * lua addOpacity()
   augroup END 
 ]]
 

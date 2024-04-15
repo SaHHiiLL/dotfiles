@@ -10,6 +10,10 @@ rofi_cmd() {
         /home/Sahil/GitClones/rofi/build/rofi -dmenu \
         -p "" \
         -theme $style_path 
+    elif [ $XDG_CURRENT_DESKTOP = "Hyprland" ]; then
+        /home/Sahil/GitClones/rofi/build/rofi -dmenu \
+        -p "" \
+        -theme $style_path 
     else
         rofi -dmenu \
         -p "" \

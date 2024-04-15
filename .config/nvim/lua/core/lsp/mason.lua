@@ -15,8 +15,6 @@ local M = {
         "rust-analyzer",
         "clangd",
         "clang-format",
-        "codelldb",
-        "jdtls",
         "pyright",
         "css-lsp",
     },

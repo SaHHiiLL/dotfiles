@@ -19,6 +19,10 @@ if [ $XDG_CURRENT_DESKTOP = "sway" ]; then
     /home/Sahil/GitClones/rofi/build/rofi \
         -show drun \
         -theme ${dir}/${theme}.rasi
+elif [ $XDG_CURRENT_DESKTOP = "Hyprland" ]; then
+    /home/Sahil/GitClones/rofi/build/rofi \
+        -show drun \
+        -theme ${dir}/${theme}.rasi
 else
     rofi \
         -show drun \

@@ -8,8 +8,6 @@
     font-weight: bold;
     text-shadow: none;
     font-size: 14px;
-
-
 }
 
 #waybar {
@@ -18,7 +16,7 @@
 
 #workspaces {
     background: @bg;
-        margin: 4px 4px;
+    margin: 4px 4px;
     padding: 6px 3px;
     border-radius: 16px;
     color: @workspaces-al;
@@ -83,6 +81,7 @@
     margin-top: 7px;
 }
 
+#cava,
 #clock,
 #disk,
 #cpu,

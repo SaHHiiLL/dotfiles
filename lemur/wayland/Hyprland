@@ -1,0 +1,4 @@
+#! /bin/bash
+
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+exec Hyprland 2>&1 | tee /tmp/Hyprland.log

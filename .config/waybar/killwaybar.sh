@@ -2,4 +2,9 @@
 set -x
 
 killall waybar
-waybar &
+
+if [ $XDG_CURRENT_DESKTOP = "Hyprland" ] ; then
+    waybar &
+else
+    waybar --config ~/.config/waybar/config.sway &
+fi

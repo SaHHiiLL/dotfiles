@@ -9,7 +9,7 @@ def get(folder):
             print(x.path)
 
 def get_folders():
-    return [ home, home + "programing/", home + "programing/rust/", home + ".config/", home + "dotfile", home + "programing/frontend", home + "programing/C", home + "GitClones/" ]
+    return [ home, home + "programing/", home + "programing/rust/", home + ".config/", home + "dotfile", home + "programing/frontend", home + "programing/C", home + "GitClones/", home + "programing/cpp" ]
 
 folders = get_folders()
 

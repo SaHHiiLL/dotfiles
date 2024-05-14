@@ -165,7 +165,6 @@ local M = {
             require("telescope").load_extension("ui-select")
         end
     },
-    { "github/copilot.vim" }
 }
 local u = require("core.utils")
 

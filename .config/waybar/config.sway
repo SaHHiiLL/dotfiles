@@ -6,7 +6,7 @@
 
   "modules-left": [
       "custom/power",
-  "pulseaudio",
+      "pulseaudio",
       "clock",
       "tray",
       "cava",

@@ -29,7 +29,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
         vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
         vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
-        vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+        vim.keymap.set('n', 'gr', "<cmd>Telescope lsp_references<CR>", opts)
         vim.keymap.set('n', '<space>f', function()
             vim.lsp.buf.format { async = true }
         end, opts)
@@ -39,38 +39,44 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 local lspc = require('lspconfig')
 lspc.lua_ls.setup {
-  on_init = function(client)
-    local path = "/home/Sahil/.local/share/nvim/mason/bin/lua-language-server"
-    if vim.loop.fs_stat(path..'/.luarc.json') or vim.loop.fs_stat(path..'/.luarc.jsonc') then
-      return
-    end
+    on_init = function(client)
+        local path = "/home/Sahil/.local/share/nvim/mason/bin/lua-language-server"
+        if vim.loop.fs_stat(path..'/.luarc.json') or vim.loop.fs_stat(path..'/.luarc.jsonc') then
+            return
+        end
 
-    client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
-      runtime = {
-        version = 'LuaJIT'
-      },
-      workspace = {
-        checkThirdParty = false,
-        library = {
-          vim.env.VIMRUNTIME
+        client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
+            runtime = {
+                version = 'LuaJIT'
+            },
+            workspace = {
+                checkThirdParty = false,
+                library = {
+                    vim.env.VIMRUNTIME
+                }
+            }
+        })
+    end,
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { 'vim' }
+            }
         }
-      }
-    })
-  end,
-  settings = {
-    Lua = {
-        diagnostics = {
-        globals = { 'vim' }
-      }
     }
-  }
 }
 
 
-lspc.clangd.setup({
-  filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto","hpp"},
-})
+local cmp_nvim_lsp = require "cmp_nvim_lsp"
 
+require("lspconfig").clangd.setup {
+    filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto","hpp"},
+    capabilities = cmp_nvim_lsp.default_capabilities(),
+    cmd = {
+        "clangd",
+        "--offset-encoding=utf-16",
+    },
+}
 
 
 

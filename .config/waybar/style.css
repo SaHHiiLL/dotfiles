@@ -81,8 +81,11 @@
     margin-top: 7px;
 }
 
-#pulseaudio,
-#cava,
+#pulseaudio {
+    margin-right: 10px;
+}
+
+#audiomod,
 #clock,
 #disk,
 #cpu,
@@ -102,6 +105,11 @@
     border: 2;
     border-style: solid;
     border-color: rgba(137, 180, 250, 0.5);
+}
+
+#cava.empty {
+    background: transparent;
+    border: none;
 }
 
 #cpu.warning {

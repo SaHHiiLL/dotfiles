@@ -8,10 +8,16 @@
             "custom/power",
             "clock",
             "tray",
-            "pulseaudio",
-            "cava",
+            "group/audiomod",
         ],
 
+        "group/audiomod" : {
+            "modules": [
+                "pulseaudio",
+                "cava",
+            ],
+            "orientation": "inherit",
+        },
         "modules-right": [
         "temperature",
         "network",
@@ -62,6 +68,7 @@
 
     "cava": {
         "autosense" : 1,
+        "framerate": 30,
         "bars": 14,
         "bar_delimiter": 0,
         "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],

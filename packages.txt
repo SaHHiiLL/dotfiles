@@ -83,3 +83,4 @@ grim
 slurp
 gvfs
 udisks2
+ntfs-3g

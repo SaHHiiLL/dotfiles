@@ -84,3 +84,4 @@ slurp
 gvfs
 udisks2
 ntfs-3g
+ttf-iosevkaterm-nerd

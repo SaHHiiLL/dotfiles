@@ -1,6 +1,6 @@
 {
   "layer": "top",
-  "position": "top",
+  "position": "bottom",
 
   "modules-center": ["sway/workspaces"],
 
@@ -103,9 +103,9 @@
 
   "custom/update": {
     "format": "<span color='#89b4fa'>󰏕 </span><span color='#cdd6f4'>{}</span>",
-    "interval": 10,
-    "exec": "echo $(paru -Qau | wc -l) + $(checkupdates | wc -l) | bc",
+    "interval": 36000,
+    "exec": "echo $(yay -Qau | wc -l) + $(checkupdates | wc -l) | bc",
     "tooltip": false,
-    "on-click": "alacritty -e paru -Syu"
+    "on-click": "alacritty -e yay -Syu"
   }
 }

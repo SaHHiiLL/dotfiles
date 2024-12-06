@@ -106,11 +106,7 @@ run_cmd() {
             amixer set Master mute
             systemctl suspend
         elif [[ $1 == '--logout' ]]; then
-            if [ $XDG_CURRENT_DESKTOP = "Sway" ]; then
-                swaymsg exit
-            else
-                i3-msg exit
-            fi
+            loginctl kill-user $USER
         fi
     else
         exit 0

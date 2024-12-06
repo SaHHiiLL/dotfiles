@@ -68,6 +68,19 @@ lspc.lua_ls.setup {
 
 
 local cmp_nvim_lsp = require "cmp_nvim_lsp"
+local cwd = vim.loop.cwd()
+require'lspconfig'.cmake.setup{
+      buildDirectory = "clang-build-debug"
+}
+
+local util = require 'lspconfig.util'
+require'lspconfig'.asm_lsp.setup{
+    default_config = {
+    cmd = { 'asm-lsp' },
+    filetypes = { 'asm', 'vmasm' },
+    root_dir = util.find_git_ancestor,
+  },
+}
 
 require("lspconfig").clangd.setup {
     filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto","hpp"},
@@ -77,7 +90,5 @@ require("lspconfig").clangd.setup {
         "--offset-encoding=utf-16",
     },
 }
-
-
 
 return M

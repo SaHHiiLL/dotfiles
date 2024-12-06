@@ -50,7 +50,8 @@ yellow = "#F9E2AF"
 
 [colors.primary]
 # background = "#1E1E2E"
-background = "#11111b"
+# background = "#11111b"
+background = "#090911"
 bright_foreground = "#CDD6F4"
 dim_foreground = "#CDD6F4"
 foreground = "#CDD6F4"

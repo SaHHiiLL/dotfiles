@@ -165,6 +165,10 @@ local M = {
             require("telescope").load_extension("ui-select")
         end
     },
+
+    {
+        "echasnovski/mini.ai",
+    }
 }
 local u = require("core.utils")
 

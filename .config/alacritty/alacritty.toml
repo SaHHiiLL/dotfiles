@@ -1,34 +1,39 @@
-import = ["/home/Sahil/.config/alacritty/catppuccin/catppuccin-mocha.toml"]
 
 [env]
 TERM = "xterm-256color"
 
 [font.bold]
-family = "Iosevka Nerd Font Mono"
-style = "Bold"
+family = "JetBrainsMonoNLNerdFontMono"
+style = "SemiBold"
 
 [font.bold_italic]
-family = "Iosevka Nerd Font Mono"
+family = "JetBrainsMonoNLNerdFontMono"
 style = "Bold Italic"
 
 [font.italic]
-family = "Iosevka Nerd Font Mono"
+family = "JetBrainsMonoNLNerdFontMono"
 style = "Italic"
 
 [font.normal]
-family = "Iosevka Nerd Font Mono"
+family = "JetBrainsMonoNLNerdFontMono"
 style = "Regular"
 
 [font]
 size = 13
 
-[shell]
+[terminal.shell]
 program = "/usr/bin/zsh"
 
 [window]
 opacity = 0.95
 dynamic_padding=true
 
+
 [window.padding]
 x = 20
 y = 20
+
+[general]
+import = ["/home/Sahil/.config/alacritty/catppuccin/catppuccin-mocha.toml"]
+
+[terminal]

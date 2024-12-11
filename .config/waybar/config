@@ -5,6 +5,7 @@
         "modules-center": ["hyprland/workspaces"],
 
         "modules-left": [
+            "custom/arch",
             "custom/power",
             "clock",
             "tray",
@@ -24,6 +25,7 @@
         "disk",
         "cpu",
         "memory",
+        "custom/update",
         ],
 
         "memory": {
@@ -42,11 +44,12 @@
         "clock": {
             "format": "<span color='#f5e0dc'>  </span>{:%I:%M %p}",
             "format-alt": "{:%A, %B %d, %Y (%R)}",
+            "tooltip": false,
             "tooltip-format": false
         },
 
         "custom/arch": {
-            "format": "<span color='#f5e0dc'> </span>",
+            "format": "<span color='#f5e0dc'></span>",
             "tooltip": false
         },
 
@@ -125,9 +128,10 @@
 
         "custom/update": {
             "format": "<span color='#89b4fa'>󰏕 </span><span color='#cdd6f4'>{}</span>",
-            "interval": 36000,
             "exec": "echo $(yay -Qau | wc -l) + $(checkupdates | wc -l) | bc",
             "tooltip": false,
-            "on-click": "alacritty -e yay -Syu"
+            "on-click": "alacritty -e yay -Syu",
+            "on-click-right": "echo $(yay -Qau | wc -l) + $(checkupdates | wc -l) | bc",
+            "interval": 3600, 
         }
 }

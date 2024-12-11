@@ -36,12 +36,28 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end,
 })
 
+vim.api.nvim_create_autocmd('LspAttach', {
+    callback = function(args)
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        if not client then
+            return
+        end
+        if client.supports_method('textDocument/formatting') then
+            vim.api.nvim_create_autocmd('BufWritePre', {
+                buffer = args.buf,
+                callback = function()
+                    vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
+                end
+            })
+        end
+    end,
+})
 
 local lspc = require('lspconfig')
 lspc.lua_ls.setup {
     on_init = function(client)
         local path = "/home/Sahil/.local/share/nvim/mason/bin/lua-language-server"
-        if vim.loop.fs_stat(path..'/.luarc.json') or vim.loop.fs_stat(path..'/.luarc.jsonc') then
+        if vim.loop.fs_stat(path .. '/.luarc.json') or vim.loop.fs_stat(path .. '/.luarc.jsonc') then
             return
         end
 
@@ -68,26 +84,26 @@ lspc.lua_ls.setup {
 
 
 local cmp_nvim_lsp = require "cmp_nvim_lsp"
-local cwd = vim.loop.cwd()
-require'lspconfig'.cmake.setup{
-      buildDirectory = "clang-build-debug"
+require 'lspconfig'.cmake.setup {
+    buildDirectory = "clang-build-debug"
 }
 
 local util = require 'lspconfig.util'
-require'lspconfig'.asm_lsp.setup{
+require 'lspconfig'.asm_lsp.setup {
     default_config = {
-    cmd = { 'asm-lsp' },
-    filetypes = { 'asm', 'vmasm' },
-    root_dir = util.find_git_ancestor,
-  },
+        cmd = { 'asm-lsp' },
+        filetypes = { 'asm', 'vmasm' },
+        root_dir = util.find_git_ancestor,
+    },
 }
 
 require("lspconfig").clangd.setup {
-    filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto","hpp"},
+    filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto", "hpp" },
     capabilities = cmp_nvim_lsp.default_capabilities(),
     cmd = {
         "clangd",
-        "--offset-encoding=utf-16",
+        "--offset-encoding=utf-8",
+        "clangd --fallback-style=\"{IndentWidth: 4, AccessModifierOffset: -4}\""
     },
 }
 

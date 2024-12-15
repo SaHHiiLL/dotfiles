@@ -15,6 +15,7 @@ alias ls="exa"
 
 # Aliases for custom scripts
 alias o="$HOME/.config/scripts/faster_cd/fzfcd.sh"
+alias s='export LS=$(fzf < <(fd --max-depth 1))'
 
 # Aliases for git
 alias gc="git commit -m"
@@ -35,7 +36,6 @@ alias cdoc='cargo doc'
 alias cfmt='cargo fmt'
 alias cfix='cargo fix'
 
-alias sf='export LS=$(fzf < <(fd --max-depth 1))'
 
 ## Alias for random application
-alias debugger="~/GitClones/gf/gf2"
+alias debugger=seergdb

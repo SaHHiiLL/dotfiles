@@ -82,6 +82,15 @@ lspc.lua_ls.setup {
     }
 }
 
+require 'lspconfig'.rust_analyzer.setup {
+    settings = {
+        ['rust-analyzer'] = {
+            diagnostics = {
+                enable = false,
+            }
+        }
+    }
+}
 
 local cmp_nvim_lsp = require "cmp_nvim_lsp"
 require 'lspconfig'.cmake.setup {

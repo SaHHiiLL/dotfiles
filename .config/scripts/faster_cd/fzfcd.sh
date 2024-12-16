@@ -13,7 +13,7 @@ home_dir() {
 }
 
 dotfiles() {
-    find ~/.config/ -maxdepth 1 -type d
+    find -L ~/.config/ -maxdepth 1 -type d
 }
 
 path=$(

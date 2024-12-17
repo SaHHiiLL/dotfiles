@@ -22,7 +22,7 @@ local M = {
     },
     {
         "nvim-telescope/telescope.nvim",
-        dependencies = { 'nvim-lua/plenary.nvim' },
+        dependencies = { 'nvim-lua/plenary.nvim', 'nvim-telescope/telescope-fzf-native.nvim' },
         opts = function()
             return require("core.plugin_config.telescope")
         end,
@@ -94,15 +94,6 @@ local M = {
         init = function() vim.g.barbar_auto_setup = false end,
     },
     {
-        "smoka7/multicursors.nvim",
-        event = "VeryLazy",
-        dependencies = {
-            'smoka7/hydra.nvim',
-        },
-        opts = {},
-        cmd = { 'MCstart', 'MCvisual', 'MCclear', 'MCpattern', 'MCvisualPattern', 'MCunderCursor' },
-    },
-    {
         "L3MON4D3/LuaSnip",
         build = "make install_jsregexp"
     },
@@ -165,6 +156,10 @@ local M = {
             require("telescope").load_extension("ui-select")
         end
     },
+
+    {
+        "echasnovski/mini.ai",
+    }
 }
 local u = require("core.utils")
 

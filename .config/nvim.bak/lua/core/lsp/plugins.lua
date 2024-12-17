@@ -1,4 +1,4 @@
--- Contains all the plugins related to LSP 
+-- Contains all the plugins related to LSP
 
 local M = {
     {
@@ -7,7 +7,7 @@ local M = {
         build = ":TSUpdate",
         config = function()
             local opts = require("core.lsp.treesitter")
-            require'nvim-treesitter.configs'.setup(opts)
+            require 'nvim-treesitter.configs'.setup(opts)
         end
     },
     {
@@ -28,7 +28,6 @@ local M = {
                     { name = 'buffer' }
                 }
             })
-
         end
 
     },
@@ -64,7 +63,6 @@ local M = {
             end, {})
 
             vim.g.mason_binaries_list = opts.ensure_installed
-
         end
     },
     {
@@ -74,6 +72,13 @@ local M = {
             require("nvim-ts-autotag").setup {
                 filetypes = { "html", "xml", "tsx", "jsx" },
             }
+        end,
+    },
+    {
+        "rust-lang/rust.vim",
+        ft = "rust",
+        init = function()
+            vim.g.rustfmt_autosave = 1
         end,
     },
     {

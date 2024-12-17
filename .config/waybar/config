@@ -49,7 +49,7 @@
         },
 
         "custom/arch": {
-            "format": "<span color='#f5e0dc'></span>",
+            "format": "<span color='#f5e0dc'> </span>",
             "tooltip": false
         },
 

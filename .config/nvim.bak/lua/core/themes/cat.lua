@@ -8,7 +8,7 @@ local M = {
     color_overrides = {
         mocha = {
             -- base = '#11111b'
-            base = '#090911'
+                base = '#090911'
         }
     }
 }

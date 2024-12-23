@@ -7,7 +7,7 @@ u.Nmap("<leader>tc", "<cmd>Telescope colorscheme<cr>", "Choose Color")
 u.Nmap("<A-i>", "<cmd>ToggleTerm direction=float<cr>", "Open Floating Term")
 u.Tmap("<A-i>", "<cmd>ToggleTermToggleAll<cr>", "Open Floating Term")
 
-u.Map({"v", "n"}, "<leader>.", "<cmd>MCstart<cr>", { desc = "Quit" })
+u.Map({ "v", "n" }, "<leader>.", "<cmd>MCstart<cr>", { desc = "Quit" })
 
 
 -- move reset --
@@ -27,9 +27,6 @@ vim.keymap.set("v", "<leader>/", "gc")
 
 vim.keymap.set("v", "<leader>lca", vim.lsp.buf.code_action)
 
--- To copy paste for neovim to system clipboard
--- must have xclip install for x11 or wl-copy for wayland
-vim.api.nvim_set_option("clipboard", "unnamed")
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "Copy -> Clipboard" })
 vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "Copy -> Clipboard" })
 
@@ -41,4 +38,3 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- Select everything in the file
 vim.keymap.set({ "n" }, "<C-a>", "gg^vG$")
-

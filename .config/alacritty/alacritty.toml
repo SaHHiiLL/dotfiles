@@ -25,7 +25,7 @@ size = 13
 program = "/usr/bin/zsh"
 
 [window]
-opacity = 0.95
+opacity = 1
 dynamic_padding=true
 
 
@@ -35,5 +35,6 @@ y = 20
 
 [general]
 import = ["/home/Sahil/.config/alacritty/catppuccin/catppuccin-mocha.toml"]
+# import = ["/home/Sahil/.config/alacritty/F1/f1.toml"]
 
 [terminal]

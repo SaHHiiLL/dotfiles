@@ -1,4 +1,4 @@
--- Contains all the plugins related to LSP 
+-- Contains all the plugins related to LSP
 
 local M = {
     {
@@ -7,30 +7,12 @@ local M = {
         build = ":TSUpdate",
         config = function()
             local opts = require("core.lsp.treesitter")
-            require'nvim-treesitter.configs'.setup(opts)
+            require 'nvim-treesitter.configs'.setup(opts)
         end
     },
     {
-        "hrsh7th/nvim-cmp",
-        dependencies = {
-            "hrsh7th/cmp-nvim-lsp",
-            "https://codeberg.org/FelipeLema/cmp-async-path",
-        },
-        opts = function()
-            return require("core.lsp.cmp")
-        end,
-        config = function(_, opts)
-            local cmp = require("cmp")
-            cmp.setup(opts)
-            cmp.setup.cmdline({ '/', '?' }, {
-                mapping = cmp.mapping.preset.cmdline(),
-                sources = {
-                    { name = 'buffer' }
-                }
-            })
-
-        end
-
+        "p00f/clangd_extensions.nvim",
+        lazy = true,
     },
     {
         "neovim/nvim-lspconfig",
@@ -40,11 +22,18 @@ local M = {
                 ft = "lua", -- only load on lua files
                 opts = {
                     library = {
-                        -- See the configuration section for more details
-                        -- Load luvit types when the `vim.uv` word is found
+
                         { path = "${3rd}/luv/library", words = { "vim%.uv" } },
                     },
                 },
+            },
+            {
+                'saghen/blink.cmp',
+                -- optional: provides snippets for the snippet source
+                dependencies = 'rafamadriz/friendly-snippets',
+                version = 'v0.*',
+                opts = require("core.lsp.cmp"),
+                opts_extend = { "sources.default" }
             },
         },
         config = function()
@@ -56,7 +45,6 @@ local M = {
         cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate" },
         opts = require("core.lsp.mason"),
 
-
         config = function(_, opts)
             require("mason").setup(opts)
             vim.api.nvim_create_user_command("MasonInstallAll", function()
@@ -64,7 +52,6 @@ local M = {
             end, {})
 
             vim.g.mason_binaries_list = opts.ensure_installed
-
         end
     },
     {

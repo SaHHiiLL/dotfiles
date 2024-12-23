@@ -9,7 +9,7 @@ local M = {
             vim.o.timeout = true
             vim.o.timeoutlen = 300
         end,
-        opts = function ()
+        opts = function()
             require("core.plugin_config.whichkey")
         end
     },
@@ -44,10 +44,7 @@ local M = {
         "akinsho/toggleterm.nvim",
         config = true,
     },
-    {
-        "p00f/clangd_extensions.nvim",
-        lazy = true,
-    },
+
     {
         "paretje/nvim-man",
         lazy = true,
@@ -79,7 +76,7 @@ local M = {
     },
     {
         'kevinhwang91/nvim-ufo',
-        dependencies = {'kevinhwang91/promise-async'},
+        dependencies = { 'kevinhwang91/promise-async' },
         config = function()
             require('core.plugin_config.ufo')
             require('ufo').setup()
@@ -88,19 +85,10 @@ local M = {
     {
         'romgrk/barbar.nvim',
         dependencies = {
-            'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
+            'lewis6991/gitsigns.nvim',     -- OPTIONAL: for git status
             'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
         },
         init = function() vim.g.barbar_auto_setup = false end,
-    },
-    {
-        "smoka7/multicursors.nvim",
-        event = "VeryLazy",
-        dependencies = {
-            'smoka7/hydra.nvim',
-        },
-        opts = {},
-        cmd = { 'MCstart', 'MCvisual', 'MCclear', 'MCpattern', 'MCvisualPattern', 'MCunderCursor' },
     },
     {
         "L3MON4D3/LuaSnip",
@@ -121,7 +109,7 @@ local M = {
             'MunifTanjim/nui.nvim',
             'MaximilianLloyd/ascii.nvim',
         },
-        config = function ()
+        config = function()
             local alpha = require("alpha")
             local dashboard = require("alpha.themes.dashboard")
 
@@ -135,18 +123,6 @@ local M = {
             ]])
         end
     },
-    -- {
-    --     'nvimdev/dashboard-nvim',
-    --     event = 'VimEnter',
-    --     dependencies = 	{ "MunifTanjim/nui.nvim", "MaximilianLloyd/ascii.nvim", 'nvim-tree/nvim-web-devicons' },
-    --
-    --     config = function()
-    --         local op = {
-    --             header = "lkjsda",
-    --         }
-    --         require("dashboard").setup(op)
-    --     end
-    -- },
     {
         'nvim-telescope/telescope-ui-select.nvim',
         config = function()
@@ -160,11 +136,13 @@ local M = {
                     }
                 }
             }
-            -- To get ui-select loaded and working with telescope, you need to call
-            -- load_extension, somewhere after setup function:
             require("telescope").load_extension("ui-select")
         end
     },
+    {
+        "lambdalisue/vim-suda",
+        lazy = true,
+    }
 }
 local u = require("core.utils")
 

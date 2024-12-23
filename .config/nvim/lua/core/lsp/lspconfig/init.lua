@@ -1,24 +1,35 @@
-local M = {}
+local capabilities = require('blink.cmp').get_lsp_capabilities()
 
-local cmp_nvim_lsp = require "cmp_nvim_lsp"
+require 'lspconfig'.lua_ls.setup({
+    { capabilities = capabilities }
+})
 
-require 'lspconfig'.cmake.setup {
-    buildDirectory = "clang-build-debug"
-}
+require 'lspconfig'.rust_analyzer.setup({
+    { capabilities = capabilities }
+})
+
+require 'lspconfig'.pyright.setup({
+    { capabilities = capabilities }
+})
 
 
-require("lspconfig").lua_ls.setup {}
-require("lspconfig").rust_analyzer.setup {}
+require 'lspconfig'.autotools_ls.setup({
+    { capabilities = capabilities }
+})
 
-require("lspconfig").clangd.setup {
+require 'lspconfig'.jdtls.setup({
+    { capabilities = capabilities }
+})
+
+require("lspconfig").clangd.setup({
     filetypes = { "c", "cpp", "h", "hpp" },
-    capabilities = cmp_nvim_lsp.default_capabilities(),
+    capabilities = capabilities,
     cmd = {
         "clangd",
         "--offset-encoding=utf-8",
         "clangd --fallback-style=\"{IndentWidth: 4, AccessModifierOffset: -4}\""
     },
-}
+})
 
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
@@ -45,5 +56,3 @@ function auto_save(args)
         })
     end
 end
-
-return M

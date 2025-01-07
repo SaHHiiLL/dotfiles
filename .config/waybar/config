@@ -130,7 +130,7 @@
             "format": "<span color='#89b4fa'>󰏕 </span><span color='#cdd6f4'>{}</span>",
             "exec": "echo $(yay -Qau | wc -l) + $(checkupdates | wc -l) | bc",
             "tooltip": false,
-            "on-click": "alacritty -e yay -Syu",
+            "on-click": "alacritty --hold -e yay -Syu",
             "on-click-right": "echo $(yay -Qau | wc -l) + $(checkupdates | wc -l) | bc",
             "interval": 3600, 
         }

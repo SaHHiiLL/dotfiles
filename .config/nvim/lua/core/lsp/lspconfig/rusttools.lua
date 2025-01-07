@@ -1,7 +1,4 @@
-print("Loading rusttools.lua")
-local configs = require "core.lsp.lspconfig.lsputils"
-local on_attach = configs.on_attach
-local capabilities = configs.capabilities
+local capabilities = require('blink.cmp').get_lsp_capabilities()
 
 local options = {
   tools = {
@@ -10,10 +7,9 @@ local options = {
       only_current_line = false,
       parameter_hints_prefix = "<- ",
       other_hints_prefix = "=> ",
-  },
+    },
   },
   server = {
-    on_attach = on_attach,
     capabilities = capabilities,
   },
 }

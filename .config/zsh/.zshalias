@@ -6,7 +6,9 @@
 # Author:  SaHHiiLL
 # Date: March 24, 2024
 #
-#
+
+alias fetch="pokeget gengar --hide-name | fastfetch --file-raw -"
+
 # Aliass for ls -- converts calls to ls to exa
 alias l="exa -lh"
 alias la="exa -lha"

@@ -21,28 +21,21 @@ local plugs = require("core.plugins")
 require("lazy").setup(plugs, {})
 
 -- alacritty cmd "alacritty msg config window.padding.x=0 window.padding.y=0 -w $ALACRITTY_WINDOW_ID"
-function decreasePadding()
-    vim.fn.system("alacritty msg config window.padding.x=0 window.padding.y=0 -w $ALACRITTY_WINDOW_ID")
-end
 
-function increasePadding()
-    vim.fn.system("alacritty msg config window.padding.x=20 window.padding.y=20 -w $ALACRITTY_WINDOW_ID")
-end
-
-function removeOpacity()
-    vim.fn.system("alacritty msg config window.opacity=1 -w $ALACRITTY_WINDOW_ID")
-end
-
-function addOpacity()
-    vim.fn.system("alacritty msg config window.opacity=0.95 -w $ALACRITTY_WINDOW_ID")
-end
-
-vim.cmd[[
-  augroup ChangeAlacrittyPadding
-   au! 
-   au VimEnter * lua removeOpacity()
-   au VimLeavePre * lua addOpacity()
-  augroup END 
-]]
+-- function reset_alacritty()
+--   vim.fn.system("alacritty msg config -r")
+-- end
+--
+-- function remove_opacity()
+--   vim.fn.system("alacritty msg config window.opacity=1 -w $ALACRITTY_WINDOW_ID")
+-- end
+--
+-- vim.cmd [[
+--   augroup ChangeAlacrittyPadding
+--    au!
+--    au VimEnter * lua reset_alacritty()
+--    au VimLeavePre * lua add_opacity()
+--   augroup END
+-- ]]
 
 vim.cmd.colorscheme "catppuccin-mocha"

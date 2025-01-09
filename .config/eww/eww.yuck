@@ -1,17 +1,55 @@
-(defwidget greeter [?text name]
-    (box    :orientation "horizontal"
-            :halign "center"
-    text
-    (button :onclick "notify-send 'Hello' 'Hello, ${name}'" "Greet")))
+(defwidget wifi []
+    (box
+    (button :onclick "notify-send 'wifi'" "󰤨")))
 
-(defwindow example
+(defwidget update []
+    (box    
+    (button :onclick "notify-send 'update'" "󰤨")))
+
+(defwidget bluethoot []
+    (box   
+    (button :onclick "notify-send 'bluethoot'" "󰤨")))
+
+(defwidget lock []
+    (box  
+    (button :onclick "notify-send 'Lock'" "󰤨")))
+
+(defwidget container-top-element []
+    (box    :class "container-top-element"
+            :orientation "h"
+            :spacing 10
+            :space-evenly true
+    (wifi)(update)(bluethoot)(lock)))
+
+(defwidget bottom-element []
+    (box    :orientation "h"
+    (button :onclick "kjalskdj" "jlhdsf")))
+
+(defpoll day :interval "1s" `date +\"%d\"`)
+(defpoll month :interval "1s" `date +\"%B\"`)
+(defpoll year :interval "1s" `date +\"%G\"`)
+
+(defwidget current-time []
+    (eventbox
+        :class "current-time"
+        (label  :text "${day}/${month}/${year}"
+                :justify "center")))
+
+(defwidget all-element []
+    (box    :halign "fill"
+            :valign "start"
+            :spacing 10
+            :orientation "v"
+    (current-time) (container-top-element) (bottom-element)))
+
+
+(defwindow menu
     :monitor 0
     :geometry (geometry :x "0%"
                         :y "0%"
-                        :width "100%"
-                        :height "5%"
-                        :anchor "top center")
-    :stacking "overlay"
-    :exclusive true
-    (greeter    :name "Sahil"))
-
+                        :width "25%"
+                        :height "89%"
+                        :anchor "top right")
+    :stacking "fg"
+    :exclusive false
+    (all-element))

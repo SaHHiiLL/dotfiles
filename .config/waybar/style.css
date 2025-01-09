@@ -118,7 +118,7 @@
 #custom-power:hover,
 #network:hover {
     border-style: solid;
-    border-color: rgba(255, 180, 250, 1);
+    border-color: rgb(243, 139, 168);
 }
 
 #cava.empty {

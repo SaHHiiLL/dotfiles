@@ -25,22 +25,31 @@
     (box    :orientation "h"
     (button :onclick "kjalskdj" "jlhdsf")))
 
-(defpoll day :interval "1s" `date +\"%d\"`)
-(defpoll month :interval "1s" `date +\"%B\"`)
-(defpoll year :interval "1s" `date +\"%G\"`)
+(defpoll time :interval "1s" `date +\"%R\"`)
+(defpoll date :interval "1s" `date +\"%e-%b-%Y\"`)
+(defpoll day :interval "1s" `date +\"%A\"`)
 
-(defwidget current-time []
+(defwidget date-time-module []
     (eventbox
-        :class "current-time"
-        (label  :text "${day}/${month}/${year}"
-                :justify "center")))
+        (box    :orientation "v"
+                :valign "fill"
+                :space-evenly false
+                :class "date-time-module"
+            (label  :class "current-time-label"
+                    :text "${time}"
+                    :justify "fill")
+            (label  :class "current-date-label"
+                    :text "${day} ${date}"
+                    :justify "fill"))))
+(defwidget calender-box []
+    (calendar :class "calender-box"))
 
 (defwidget all-element []
-    (box    :halign "fill"
-            :valign "start"
+    (box    :valign "fill"
             :spacing 10
             :orientation "v"
-    (current-time) (container-top-element) (bottom-element)))
+            :space-evenly false
+    (date-time-module) (calender-box) (container-top-element) (bottom-element)))
 
 
 (defwindow menu

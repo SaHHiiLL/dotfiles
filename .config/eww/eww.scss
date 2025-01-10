@@ -23,7 +23,8 @@ $surface1: #45475a;
 $surface0: #313244;
 $base: #1e1e2e;
 $mantle: #181825;
-$crust: #11111b;
+$crust-trans: rgba(17, 17, 27, 0.7);
+$crust: rgb(17, 17, 27);
 
 $bg: $crust;
 
@@ -31,13 +32,8 @@ $bg: $crust;
   all: unset;
 }
 
-.current-time {
-  font-size: 20px;
-  margin-bottom: 20px;
-}
-
 window {
-  background: $bg;
+  background: $crust-trans;
   border-style: solid;
   border-width: 3px;
   border-color: $blue;
@@ -45,22 +41,44 @@ window {
   box-shadow: rgba(0,0,0,0.4) 10px 10px;;
 }
 
-.bar-hypr-workspace {
+
+$container-top-element-margin: 20px;
+@mixin button-border-trick($color) {
+  border-style: solid;
+  border-width: 2px;
+  border-color: $color;
 }
 
 .container-top-element {
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: $container-top-element-margin;
+  margin-right: $container-top-element-margin;
   button {
+    @include button-border-trick($base);
     padding: 10px;
     border-radius: 10%;
-    border-color: $blue;
-    border-style: solid;
-    border-width: 3px;
+    background: $base;
 
     &:hover {
-      background: lighten($bg, 5%);
-      border-color: $red;
+      background: lighten($bg, 10%);
+      @include button-border-trick($red);
     }
   }
 }
+
+
+.date-time-module {
+  margin: 20;
+  background: $base;
+  padding-top: 20;
+  padding-bottom: 20;
+}
+
+.current-date-label {
+  font-size: 15px;
+  color: $text;
+}
+.current-time-label {
+  color: $text;
+  font-size: 40px;
+}
+

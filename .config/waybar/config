@@ -20,12 +20,12 @@
             "orientation": "inherit",
         },
         "modules-right": [
-        "temperature",
-        "network",
-        "disk",
-        "cpu",
-        "memory",
-        "custom/update",
+            "temperature",
+            "network",
+            "disk",
+            "cpu",
+            "memory",
+            "custom/update",
         ],
 
         "memory": {
@@ -55,7 +55,7 @@
 
         "custom/power": {
             "format": "<span color='#f5e0dc'>⏻</span>",
-            "on-click": "exec ~/.config/rofi/powermenu/type-1/powermenu.sh",
+            "on-click": "eww open powermenu",
             "tooltip": false
         },
 
@@ -106,7 +106,8 @@
         },
 
         "disk": {
-            "format": "<span color='#89b4fa'> </span>: {percentage_used}%"
+            "format": "<span color='#89b4fa'> </span>: {percentage_used}%",
+            "on-click": "eww open storage"
         },
         "pulseaudio": {
             "format": "<span color='#89b4fa'>{icon} </span> {volume}%",
@@ -130,7 +131,7 @@
             "format": "<span color='#89b4fa'>󰏕 </span><span color='#cdd6f4'>{}</span>",
             "exec": "echo $(yay -Qau | wc -l) + $(checkupdates | wc -l) | bc",
             "tooltip": false,
-            "on-click": "alacritty --hold -e yay -Syu",
+            "on-click": "alacritty -e yay -Syu",
             "on-click-right": "echo $(yay -Qau | wc -l) + $(checkupdates | wc -l) | bc",
             "interval": 3600, 
         }

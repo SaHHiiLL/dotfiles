@@ -7,6 +7,11 @@
 # Date: March 24, 2024
 #
 
+function countlines() {
+    find $1 -type f | xargs -n1 wc | awk '{print $1}' | awk '{ sum += $1 } END { print sum }'
+}
+
+alias cl=countlines
 alias fetch="pokeget gengar --hide-name | fastfetch --file-raw -"
 
 # Aliass for ls -- converts calls to ls to exa
@@ -17,7 +22,6 @@ alias ls="exa"
 
 # Aliases for custom scripts
 alias o="$HOME/.config/scripts/faster_cd/fzfcd.sh"
-alias s='export LS=$(fzf < <(fd --max-depth 1))'
 
 # Aliases for git
 alias gc="git commit -m"
@@ -41,3 +45,8 @@ alias cfix='cargo fix'
 
 ## Alias for random application
 alias debugger=seergdb
+function debug_last() {
+    coredumpctl | tail  -n 1 | awk '{print $5}' | xargs -I {} alacritty -e coredumpctl gdb {}
+}
+alias debuglast=debug_last
+

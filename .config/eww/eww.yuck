@@ -1,64 +1,78 @@
-(defwidget wifi []
-    (box
-    (button :onclick "notify-send 'wifi'" "󰤨")))
-
-(defwidget update []
-    (box    
-    (button :onclick "notify-send 'update'" "󰤨")))
-
-(defwidget bluethoot []
-    (box   
-    (button :onclick "notify-send 'bluethoot'" "󰤨")))
-
-(defwidget lock []
-    (box  
-    (button :onclick "notify-send 'Lock'" "󰤨")))
-
-(defwidget container-top-element []
-    (box    :class "container-top-element"
-            :orientation "h"
-            :spacing 10
-            :space-evenly true
-    (wifi)(update)(bluethoot)(lock)))
-
-(defwidget bottom-element []
+(defwidget all-power-button []
     (box    :orientation "h"
-    (button :onclick "kjalskdj" "jlhdsf")))
+            :class "powermenu-buttons"
+            (button :class "poweroff" :onclick "./scripts/powermenu.sh poweroff" "󰐥")
+            (button :class "reboot" :onclick  "./scripts/powermenu.sh reboot" "󰑓")
+            (button :class "sleep" :onclick  "./scripts/powermenu.sh suspend" "")
+            (button :class "logout" :onclick "./scripts/powermenu.sh logout" "󰍃")
+            (button :class "cancel" :onclick "./scripts/powermenu.sh exit" "X")))
 
-(defpoll time :interval "1s" `date +\"%R\"`)
-(defpoll date :interval "1s" `date +\"%e-%b-%Y\"`)
-(defpoll day :interval "1s" `date +\"%A\"`)
-
-(defwidget date-time-module []
-    (eventbox
-        (box    :orientation "v"
-                :valign "fill"
-                :space-evenly false
-                :class "date-time-module"
-            (label  :class "current-time-label"
-                    :text "${time}"
-                    :justify "fill")
-            (label  :class "current-date-label"
-                    :text "${day} ${date}"
-                    :justify "fill"))))
-(defwidget calender-box []
-    (calendar :class "calender-box"))
-
-(defwidget all-element []
-    (box    :valign "fill"
-            :spacing 10
-            :orientation "v"
-            :space-evenly false
-    (date-time-module) (calender-box) (container-top-element) (bottom-element)))
-
-
-(defwindow menu
+(defwindow powermenu
     :monitor 0
-    :geometry (geometry :x "0%"
-                        :y "0%"
-                        :width "25%"
-                        :height "89%"
+    :geometry (geometry :x "0.9%"
+                        :y "10px"
+                        :width "18.4%"
+                        :height "6%"
+                        :anchor "top left")
+    :stacking "fg"
+    :exclusive false
+    (all-power-button))
+
+(defpoll home-storage-percent :interval "1s"
+    "df -h --output=pcent /home | tail -n 1 | cut -c2-3")
+
+(defpoll root-storage-percent :interval "1s"
+    "df -h --output=pcent / | tail -n 1 | cut -c2-3")
+
+(defpoll root-storage-size :interval "1s"
+    "./scripts/disk/disk_space.sh /")
+
+(defpoll home-storage-size :interval "1s"
+    "./scripts/disk/disk_space.sh /home")
+
+
+(defwidget all-storage-widgets []
+    (box    :orientation "v"
+            :space-evenly false
+            :class "storage-box"
+            :valign "center"
+            :halign "center"
+            :spacing 10
+            (box    :orientation "h"
+                    :class "home-storage"
+                    :spacing 20
+                    :space-evenly false
+                    (label      :valign "center"
+                                :halign "center"
+                                :text "")
+                    (progress   :value home-storage-percent
+                                :tooltip "${home-storage-percent}% in use"
+                                :valign "center"
+                                :halign "center")
+                    (label      :valign "center"
+                                :halign "center"
+                                :text "${home-storage-size}"))
+            (box    :orientation "h"
+                    :class "root-storage"
+                    :spacing 20
+                    :space-evenly false
+                    (label      :valign "center"
+                                :halign "center"
+                                :text "/")
+                    (progress   :value root-storage-percent
+                                :tooltip "${root-storage-percent}% in use"
+                                :valign "center"
+                                :halign "center")
+                    (label      :valign "center"
+                                :halign "center"
+                                :text "${root-storage-size}"))))
+
+(defwindow storage
+    :monitor 0
+    :geometry (geometry :x "9%"
+                        :y "10px"
+                        :height "6%"
                         :anchor "top right")
     :stacking "fg"
     :exclusive false
-    (all-element))
+    (all-storage-widgets))

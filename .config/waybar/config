@@ -55,7 +55,7 @@
 
         "custom/power": {
             "format": "<span color='#f5e0dc'>⏻</span>",
-            "on-click": "eww open powermenu",
+            "on-click": "eww open --toggle powermenu > /dev/null",
             "tooltip": false
         },
 
@@ -107,7 +107,7 @@
 
         "disk": {
             "format": "<span color='#89b4fa'> </span>: {percentage_used}%",
-            "on-click": "eww open storage"
+            "on-click": "eww open --toggle storage > /dev/null"
         },
         "pulseaudio": {
             "format": "<span color='#89b4fa'>{icon} </span> {volume}%",

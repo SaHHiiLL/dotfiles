@@ -31,6 +31,7 @@ require("lspconfig").clangd.setup({
   cmd = {
     "clangd",
     "--offset-encoding=utf-8",
+    "--clang-tidy",
     "clangd --fallback-style=\"{IndentWidth: 4, AccessModifierOffset: -4}\""
   },
 })

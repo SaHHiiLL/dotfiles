@@ -1,0 +1,19 @@
+(defwidget all-power-button []
+    (box    :orientation "h"
+            :class "powermenu-buttons"
+            (button :class "poweroff"   :onclick    "../../scripts/powermenu.sh apoweroff"   "󰐥")
+            (button :class "reboot"     :onclick    "../../scripts/powermenu.sh areboot"     "󰑓")
+            (button :class "sleep"      :onclick    "../../scripts/powermenu.sh asuspend"    "")
+            (button :class "logout"     :onclick    "../../scripts/powermenu.sh alogout"     "󰍃")
+            (button :class "cancel"     :onclick    "../../scripts/powermenu.sh aexit"       "X")))
+
+(defwindow powermenu
+    :monitor 0
+    :geometry (geometry :x "0.9%"
+                        :y "10px"
+                        :width "18.4%"
+                        :height "6%"
+                        :anchor "top left")
+    :stacking "fg"
+    :exclusive false
+    (all-power-button))

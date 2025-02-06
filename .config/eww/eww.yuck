@@ -76,3 +76,43 @@
     :stacking "fg"
     :exclusive false
     (all-storage-widgets))
+
+(defpoll current-date :interval "1s"
+    "date +'%d %b %Y'")
+
+(defpoll current-day :interval "1s"
+    "date +'%A'")
+
+(defpoll current-time :interval "1s"
+    "date +'%H:%M'")
+
+(defwidget time []
+        (label  :valign "center"
+                :halign "center"
+                :text "${current-time}"))
+
+(defwidget date []
+    (box    :class "date"
+            :space-evenly false
+            :spacing 10
+        (label  :valign "center"
+                :halign "center"
+                :text "${current-day} - ${current-date}")))
+
+(defwidget all-date-time []
+    (box    :class "date-time"
+            :orientation "v"
+            :class "date-time"
+            :space-evenly false
+            (date) (time)))
+
+(defwindow date-time
+    :monitor 0
+    :geometry (geometry :x "0%"
+                        :y "0%"
+                        :anchor "center")
+    :stacking "bg"
+    :exclusive false
+    :focusable false
+    :namespaces ["date-time-eww-widget"]
+    (all-date-time))

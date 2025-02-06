@@ -11,8 +11,9 @@ elif [ $1 == "suspend" ]; then
     amixer set Master mute
     systemctl suspend
 else
-    eww close powermenu
+    eww --config ~/.config/eww/widgets/powermenu/ close powermenu
     exit
 fi
-eww close powermenu
+
+eww --config ~/.config/eww/widgets/powermenu/ close powermenu
 

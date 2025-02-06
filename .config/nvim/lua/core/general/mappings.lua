@@ -37,4 +37,4 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- Select everything in the file
-vim.keymap.set({ "n" }, "<C-a>", "gg^vG$")
+-- vim.keymap.set({ "n" }, "<C-a>", "gg^vG$")

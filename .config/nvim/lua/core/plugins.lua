@@ -143,7 +143,14 @@ local M = {
   {
     "lambdalisue/vim-suda",
     lazy = false,
-  }
+  },
+  {
+    "RaafatTurki/hex.nvim",
+    lazy = false,
+    config = function()
+      require 'hex'.setup()
+    end
+  },
 }
 local u = require("core.utils")
 

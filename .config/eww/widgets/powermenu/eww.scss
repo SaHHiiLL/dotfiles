@@ -1,0 +1,17 @@
+@import "../../styles/colors.scss";
+
+* {
+  all: unset;
+  color: $text;
+  font-size: 20;
+}
+
+.powermenu-buttons {
+  background: $bg;
+  button {
+    &:hover {
+      background: $base;
+    }
+  }
+}
+

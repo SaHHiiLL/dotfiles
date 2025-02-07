@@ -14,7 +14,3 @@ clean:
 	rm -f ./styles/*.css*
 
 .PHONY: all clean
-
-
-
-

@@ -29,6 +29,44 @@ $dark-crust: rgba(09, 09, 17, 0.7);
 * {
     all: unset;
     font-family: "JetBrains Mono NL SemiBold", serif;
-    font-size: 15;
+    font-size: 15px;
 }
 
+window {
+    background: $crust;
+}
+
+.workspaces {
+
+    button {
+        padding: 2px 2px;
+        border-radius: 16px;
+        color: $overlay0;
+        opacity: 1;
+        transition: all 0.2s ease-in-out;
+
+        &.active {
+            background-color: $blue;
+            color: $crust;
+            border-radius: 16px;
+            min-width: 50px;
+            background-size: 400% 400%;
+            transition: all 0.2s ease-in-out;
+            opacity: 1;
+        }
+
+        &:hover {
+            background-color: $text;
+            color: $crust;
+            border-radius: 10rem;
+            min-width: 50px;
+            background-size: 400% 400%;
+            transition: all 0.3s ease-in-out;
+            opacity: 1;
+        }
+
+        &:not(:last-child) {
+            margin-right: 5px;
+        }
+    }
+}

@@ -1,0 +1,40 @@
+* {
+  all: unset;
+  font-family: "JetBrains Mono NL SemiBold", serif;
+  font-size: 15px;
+}
+
+window {
+  background: #11111b;
+}
+
+.workspaces button {
+  padding: 2px 2px;
+  border-radius: 16px;
+  color: #6c7086;
+  opacity: 1;
+  transition: all 0.2s ease-in-out;
+}
+.workspaces button.active {
+  background-color: #89b4fa;
+  color: #11111b;
+  border-radius: 16px;
+  min-width: 50px;
+  background-size: 400% 400%;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}
+.workspaces button:hover {
+  background-color: #cdd6f4;
+  color: #11111b;
+  border-radius: 10rem;
+  min-width: 50px;
+  background-size: 400% 400%;
+  transition: all 0.3s ease-in-out;
+  opacity: 1;
+}
+.workspaces button:not(:last-child) {
+  margin-right: 5px;
+}
+
+/*# sourceMappingURL=bar.css.map */

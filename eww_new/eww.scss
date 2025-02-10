@@ -1,0 +1,12 @@
+@import "./styles/bar/bar.scss"
+
+
+* {
+  all: unset;
+  color: $text;
+}
+
+window {
+  background: $crust;
+}
+

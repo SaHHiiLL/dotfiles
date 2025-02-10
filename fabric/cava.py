@@ -32,7 +32,6 @@ class Cava:
                 os.mkfifo(self.raw_target)
             self.source = open(self.raw_target, "rb")
         else:
-            print("Setting source")
             self.source = self.process.stdout
 
     def run(self, output_queue_buffer):

@@ -1,6 +1,7 @@
-from fabric import Application
+from fabric import Application, Fabricator
 from fabric.hyprland.widgets import Workspaces
 from fabric.widgets.box import Box
+from fabric.widgets.button import Button
 from fabric.widgets.datetime import DateTime
 from fabric.widgets.label import Label
 from fabric.widgets.centerbox import CenterBox
@@ -9,6 +10,8 @@ from fabric.widgets.wayland import WaylandWindow as Window
 from fabric.widgets.eventbox import EventBox
 
 from multiprocessing import Process as QueueProcess, Queue
+
+from fabric.widgets.widget import Widget
 
 from cava import Cava
 
@@ -19,15 +22,15 @@ class VolumeControlAndCava:
         Polls the queue for data and updates the bars
         """
         while True:
-            self.poll_once(self._queue)
+            self.poll_once()
 
-    def poll_once(self, queue):
+    def poll_once(self):
         """
         Polls the queue for data and updates the bars
         at a rate of 1 second
         :param queue:
         """
-        data = queue.get()
+        data = self._queue.get()
         if data is not None:
             self._bars = data
 
@@ -46,7 +49,6 @@ class VolumeControlAndCava:
         Start the cava process
         """
         self._cava_queue_thread.start()
-        self._cava_poll_thread.start()
 
     def get_bar_from_volume(self, height):
         """
@@ -56,7 +58,7 @@ class VolumeControlAndCava:
         """
         print("Height ", height)
         if height == 0:
-            return ""
+            return "▁"
 
         return self._bars_string_rep[int(height * 7) - 1]
 
@@ -67,13 +69,28 @@ class VolumeControlAndCava:
         """
         return [self.get_bar_from_volume(h) for h in self._bars]
 
-    def get_cava_label(self) -> Label :
-        """
-        Get the bars from the volume
-        :return: [str]
-        """
-        return Label("-".join(self.get_cava_bars()))
+class VolumeControlAndCavaWidget(Widget):
+    
+    def __init__(self):
+        super().__init__()
+        self._volume_cava_inner = VolumeControlAndCava()
+        self.master_volume = 0
+        self.widgets = Box(
+            children=[
+                Label("Volume: {}%".format(self.master_volume)),
+                Scale(
+                    value=self.master_volume,
+                    min=0,
+                    max=100,
+                    step=1,
+                    on_value_changed=lambda x: self.set_volume(x.get_value())
+                ),
+                Label(self._volume_cava_inner.get_cava_bars())
+            ]
+        )
 
+    def do_update(self):
+        self.widgets.children[2].set_label(self._volume_cava_inner.get_cava_bars())
 
 class Bar(Window):
     def __init__(self, **kwargs):
@@ -81,14 +98,13 @@ class Bar(Window):
             style_classes=["bar-class"],
             anchor="left top right",
             exclusivity='auto',
-            v_align="fill",
             inspector=True,
             **kwargs
         )
         self.volume_cava = VolumeControlAndCava()
         self.volume = 0
         self.left_children = [DateTime()]
-        self.right_children = [Box(child=self.volume_cava.get_cava_label())]
+        self.right_children = [DateTime()]
         self.volume_cava.start()
         self.center_children = [Workspaces(style_classes=["workspaces"])]
 
@@ -98,8 +114,28 @@ class Bar(Window):
                                   orientation='h',
                                   style='padding: 10px;')
 
+
+
+class Counter(Window):
+    def increment(self):
+        self.counter += 1
+        return self.counter
+
+    def __init__(self):
+        super().__init__(style_classes=["counter-class"])
+        self.counter = 0
+        print(self.get_signal_names())
+        self.children = Box(children = [
+            Button(
+                "Click me {}".format(self.counter),
+                on_clicked=lambda x: x.set_label("Click me {}".format(self.increment()))
+            ),
+            Label("{}".format(self.counter))
+        ])
+
+
 if __name__ == "__main__":
-    bar = Bar()
+    bar = Counter()
     app = Application("bar-example", bar)
     app.set_stylesheet_from_file("/home/Sahil/dotfile/fabric/styles/bar.css")
     app.run()

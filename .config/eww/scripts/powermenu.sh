@@ -10,6 +10,10 @@ elif [ $1 == "suspend" ]; then
     mpc -q pause
     amixer set Master mute
     systemctl suspend
+elif [ $1 == "test" ]; then
+    notify-send "Powermenu test"
+elif [ $1 == "lock" ]; then
+    notify-send "Lock not implemented"
 else
     eww --config ~/.config/eww/widgets/powermenu/ close powermenu
     exit

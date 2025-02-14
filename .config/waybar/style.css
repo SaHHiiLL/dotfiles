@@ -65,7 +65,7 @@
 
 #custom-update {
     background: @bg;
-        padding: 2px 11px 2px 14px;
+    padding: 2px 11px 2px 14px;
     margin: 4px;
     border-radius: 10px;
     margin-bottom: 7px;
@@ -85,15 +85,16 @@
     margin-right: 10px;
 }
 
+
 #audiomod,
 #clock,
 #disk,
 #cpu,
 #temperature,
 #memory,
-#custom-arch,
 #custom-update,
 #custom-power,
+#slider,
 #network {
     margin: 4px;
     border-radius: 10px;
@@ -102,9 +103,10 @@
     padding: 4px 10px 4px 10px;
     background: @bg;
     color: @cg;
-    border: 2;
+    border: 2px;
     border-style: solid;
     border-color: rgba(137, 180, 250, 0.5);
+    transition: all 0.15s ease-out;
 }
 
 #audiomod:hover,
@@ -113,7 +115,6 @@
 #cpu:hover,
 #temperature:hover,
 #memory:hover,
-#custom-arch:hover,
 #custom-update:hover,
 #custom-power:hover,
 #network:hover {

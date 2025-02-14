@@ -1,0 +1,72 @@
+@import "../color.scss"
+
+
+
+.everything-container {
+  background: $crust;
+  border-radius: 10px ;
+
+}
+
+.label-container {
+  background-image: url("https://raw.githubusercontent.com/SaHHiiLL/dotfiles/refs/heads/master/.config/wallpaper/1329456.jpeg");
+  background-size: cover;
+
+  border-radius: 10px 0 0 10px;
+
+  label {
+    margin: 12px;
+    border-radius: 15px;
+  }
+
+  .user-label {
+    color: $base;
+    background: $green;
+  }
+  
+  .uptime-label {
+    color: $base;
+    background: $lavender;
+  }
+}
+
+.button-container {
+  padding: 10px 4px 10px 0px;
+  margin-left: 6px;
+  margin-right: 6px;
+  button {
+    font-size: 18px;
+    margin: 3px;
+    background-color: $base;
+    border-radius: 10px;
+    transition: all 0.5s ease-in-out;
+    &:hover {
+      transition: all 0.2s ease-in-out;
+    }
+  }
+
+  .poweroff:hover{
+    color: $base;
+    background-color: $red;
+  }
+
+  .reboot:hover {
+    color: $base;
+    background: $peach;
+  }
+
+  .logout:hover {
+    background: $yellow;
+    color: $base;
+  }
+
+  .sleep:hover {
+    color: $base;
+    background: $sapphire;
+  }
+
+  .lock:hover {
+    color: $base;
+    background: $teal;
+  }
+}

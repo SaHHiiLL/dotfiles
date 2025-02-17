@@ -2,7 +2,7 @@
 (defpoll uptime :interval "1m"
     "uptime --pretty | awk '{$1= \"\"; print $0}'")
 
-(defwidget all-buttons-box []
+(defwidget all-powermenu-buttons-box []
     (box    :orientation "h"
             :class "everything-container"
             (other-info)
@@ -22,17 +22,17 @@
             (box
                 :orientation "h"
                 (button :class "poweroff"
-                        :onclick "../../scripts/powermenu.sh poweroff"  "󰐥")
+                        :onclick "./scripts/powermenu.sh poweroff"  "󰐥")
                 (button :class "reboot"
-                        :onclick "../../scripts/powermenu.sh reboot"    "󰑓"))
+                        :onclick "./scripts/powermenu.sh reboot"    "󰑓"))
             (box
                 :orientation "h"
                 (button :class "sleep"
-                        :onclick "../../scripts/powermenu.sh suspend"   "")
+                        :onclick "./scripts/powermenu.sh suspend"   "")
                 (button :class "logout"
-                        :onclick "../../scripts/powermenu.sh logout"    "󰍃")
+                        :onclick "./scripts/powermenu.sh logout"    "󰍃")
                 (button :class "lock"
-                        :onclick "../../scripts/powermenu.sh lock" ""))))
+                        :onclick "./scripts/powermenu.sh lock" ""))))
 
 (defwindow powermenu
            :monitor 0
@@ -43,4 +43,4 @@
                                :anchor "top left")
             :stacking "fg"
             :exclusive true
-    (all-buttons-box))
+    (all-powermenu-buttons-box))

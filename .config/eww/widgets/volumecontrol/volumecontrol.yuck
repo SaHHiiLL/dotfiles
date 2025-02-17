@@ -1,0 +1,14 @@
+
+(defwidget all-media-widgets []
+    (box (label :text "ljhasd")))
+
+(defwindow media
+           :monitor 0
+           :geometry (geometry :x "15px"
+                               :y "15px"
+                               :width "25%"
+                               :height "12%"
+                               :anchor "top left")
+            :stacking "fg"
+            :exclusive true
+    (all-media-widgets))

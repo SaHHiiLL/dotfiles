@@ -1,2 +1,3 @@
 (include "./widgets/powermenu/powermenu.yuck")
 (include "./widgets/volumecontrol/volumecontrol.yuck")
+(include "./widgets/datetime/datetime.yuck")

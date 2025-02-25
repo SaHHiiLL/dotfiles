@@ -1,14 +1,18 @@
 
 (defwidget all-media-widgets []
-    (box (label :text "ljhasd")))
+        (box    :orientation "v"
+                :class "all-media-widgets"
+                (label  :text "Master Volume")
+                (scale  :min 0
+                        :max 100
+                        :orientation "h"
+                        :onchange "../../scripts/volume {}")))
 
 (defwindow media
            :monitor 0
            :geometry (geometry :x "15px"
                                :y "15px"
-                               :width "25%"
-                               :height "12%"
-                               :anchor "top left")
+                               :anchor "top right")
             :stacking "fg"
             :exclusive true
     (all-media-widgets))

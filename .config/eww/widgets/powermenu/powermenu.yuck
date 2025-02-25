@@ -42,5 +42,5 @@
                                :height "12%"
                                :anchor "top left")
             :stacking "fg"
-            :exclusive true
+            :exclusive false
     (all-powermenu-buttons-box))

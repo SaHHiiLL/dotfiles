@@ -1,15 +1,15 @@
 @import "../color.scss"
 
-
-
 .everything-container {
   background: $crust;
+  border-width: 3px;
+  border-style: solid;
+  border-color: $blue;
   border-radius: 10px ;
-
 }
 
 .label-container {
-  background-image: url("https://raw.githubusercontent.com/SaHHiiLL/dotfiles/refs/heads/master/.config/wallpaper/1329456.jpeg");
+  background-image: url("https://github.com/SaHHiiLL/dotfiles/blob/master/.config/wallpaper/wallhaven-yxvqqx.png?raw=true");
   background-size: cover;
 
   border-radius: 10px 0 0 10px;
@@ -34,14 +34,16 @@
   padding: 10px 4px 10px 0px;
   margin-left: 6px;
   margin-right: 6px;
+
   button {
     font-size: 18px;
     margin: 3px;
     background-color: $base;
     border-radius: 10px;
     transition: all 0.5s ease-in-out;
+
     &:hover {
-      transition: all 0.2s ease-in-out;
+      transition: all 0.17s ease-in-out;
     }
   }
 

@@ -1,0 +1,15 @@
+.dtw-everything-box {
+
+  font-family: "Bord Demo";
+  color: $text;
+
+  .dtw-time-label {
+    font-size: 75px;
+    text-shadow: 2px 2px 5px $crust;
+  }
+
+  .dtw-day-date-label {
+    font-size: 20px;
+    text-shadow: 2px 2px 3px $crust;
+  }
+} 

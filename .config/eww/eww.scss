@@ -1,6 +1,7 @@
 @import "./color.scss"
 @import "./styles/powermenu.scss"
 @import "./styles/volumecontrol.scss"
+@import "./styles/datetime.scss"
 
 * {
   all: unset;
@@ -10,5 +11,4 @@ window {
   background: rgba(0, 0, 0, 0);
   border-radius: 10px;
 }
-
 

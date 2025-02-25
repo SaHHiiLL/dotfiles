@@ -1,0 +1,38 @@
+(defpoll time :interval "1s"
+              :initial "initial-value"
+              :run-while time-visible   
+  `date +%H:%M`)
+
+(defpoll day :interval "1s"
+              :initial "initial-value"
+              :run-while time-visible   
+  `date +%A`)
+
+(defpoll date :interval "1s"
+              :initial ""
+              :run-while time-visible   
+  `date +%e-%b-%Y`)
+
+(defwidget all-dtw []
+    (box    :class "dtw-everything-box"
+            :orientation "v"
+            :space-evenly false
+        (label 
+            :class "dtw-time-label"
+            :text "${time}")
+        (box 
+            :orientation "h"
+            (label 
+                :class "dtw-day-date-label"
+                :text "${day} | ${date}"))))
+
+(defwindow dtw
+           :monitor 0
+           :geometry (geometry :x "35px"
+                               :y "15px"
+                               :width "0%"
+                               :height "0%"
+                               :anchor "top left")
+            :stacking "bg"
+            :exclusive false
+    (all-dtw))

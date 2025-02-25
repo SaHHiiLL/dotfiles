@@ -24,5 +24,5 @@ rofi_cmd() {
 input=$(rofi_cmd)
 
 if [[ -n $input ]]; then
-  firefox --new-tab "https://www.google.com/search?client=firefox-b-d&q=$(echo $input | jq -sRr @uri)" &
+  zen-browser --new-tab "https://www.google.com/search?client=firefox-b-d&q=$(echo $input | jq -sRr @uri)" &
 fi

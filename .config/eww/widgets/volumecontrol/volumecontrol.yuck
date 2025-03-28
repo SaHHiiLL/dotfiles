@@ -1,18 +1,26 @@
 
+(deflisten volume :initial "0" "./scripts/volume.sh")
+
 (defwidget all-media-widgets []
-        (box    :orientation "v"
-                :class "all-media-widgets"
-                (label  :text "Master Volume")
+        (box    :orientation "h"
+                :class "all-media-widgets ${ volume < 1 ? "not-shouting" : "shouting" }"
+                :space-evenly false
+                :halign "fill"
+                (label  :text "${(volume <= 1) || (volume == "muted") ? "󰖁" : (volume < 25) ? "" : "" }")
                 (scale  :min 0
+                        :hexpand true
                         :max 100
+                        :active {volume != "muted"}
+                        :value {volume == "muted" ? 0 : volume}
                         :orientation "h"
-                        :onchange "../../scripts/volume {}")))
+                        :onchange "pamixer --set-volume {}")))
 
 (defwindow media
            :monitor 0
-           :geometry (geometry :x "15px"
-                               :y "15px"
-                               :anchor "top right")
+           :geometry (geometry  :x "130px"
+                                :y "15px"
+                                :width "250px"
+                                :anchor "top left")
             :stacking "fg"
             :exclusive true
     (all-media-widgets))

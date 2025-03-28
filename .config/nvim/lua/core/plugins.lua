@@ -145,6 +145,22 @@ local M = {
     lazy = false,
   },
   {
+    "X3eRo0/dired.nvim",
+    dependencies = { "MunifTanjim/nui.nvim" },
+    config = function()
+      require("dired").setup {
+        path_separator = "/", -- Use '/' as the path separator
+        show_hidden = true,   -- Show hidden files
+        show_icons = true,    -- Show icons (patched font required)
+        show_banner = false,  -- Do not show the banner
+        hide_details = false, -- Show file details by default
+        sort_order = "name",  -- Sort files by name by default
+
+        vim.keymap.set("n", "<C-m>", ":Dired <CR>")
+      }
+    end
+  },
+  {
     "RaafatTurki/hex.nvim",
     lazy = false,
     config = function()

@@ -34,7 +34,7 @@
     transition: all 0.3s ease-in-out;
 }
 
-#workspaces button.active {
+#workspaces button.focused {
     background-color: @workspaces-active-bg;
     color: @workspaces-active-cl;
     border-radius: 16px;
@@ -84,7 +84,6 @@
 #pulseaudio {
     margin-right: 10px;
 }
-
 
 #audiomod,
 #clock,

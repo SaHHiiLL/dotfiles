@@ -1,3 +1,52 @@
-.all-media-widgets {
-  background: $crust;
+.shouting {
+  border-color: $blue;
+  transition: all 0.4s ease-in-out;
+  label {
+    transition: all 0.4s ease-in-out;
+    padding-right: 18px;
+    padding-left: 14px;
+    background-color: $blue;
+    color: $crust;
+  }
 }
+
+.not-shouting {
+  border-color: $red;
+  transition: all 0.4s ease-in-out;
+  label {
+    transition: all 0.4s ease-in-out;
+    padding-right: 18px;
+    padding-left: 14px;
+    background-color: $red;
+    color: $crust;
+  }
+}
+
+.all-media-widgets {
+  label {
+    margin-right: 5px;
+    font-size: 15px;
+  }
+
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 10px ;
+  background-color: $crust;
+
+  scale {
+    padding: 9px 10px 9px 3px;
+
+    trough {
+      background-color: $surface1;
+      border-radius: 1rem;
+      min-height: 0.9rem;
+      min-width: 2rem;
+    }
+
+    trough highlight {
+      background-color: $green;
+      border-radius: 1rem;
+    }
+  }
+}
+

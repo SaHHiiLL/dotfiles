@@ -2,7 +2,7 @@
     "layer": "top",
     "position": "top",
 
-    "modules-center": ["hyprland/workspaces"],
+    "modules-center": ["sway/workspaces"],
 
     "modules-left": [
         "custom/power",
@@ -66,26 +66,29 @@
         "framerate": 30,
         "bars": 14,
         "bar_delimiter": 0,
-        "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+        "hide_on_silence": true,
+        "format-icons" : [ 
+            "<span foreground='#7287fd'>▁</span>",
+            "<span foreground='#7287fd'>▂</span>",
+            "<span foreground='#7287fd'>▃</span>",
+            "<span foreground='#7287fd'>▄</span>", 
+            "<span foreground='#7287fd'>▅</span>",
+            "<span foreground='#7287fd'>▆</span>",
+            "<span foreground='#7287fd'>▇</span>",
+        ],
         "actions": {
             "on-click-right": "mode"
         }
     },
-
-    "hyprland/workspaces": {
-        "active-only": false,
-        "all-outputs": true,
-        "disable-scroll": false,
-        "format": "{name}",
+    "sway/workspaces": {
+        "format" : "{name}",
         "on-click": "activate",
-        "on-scroll-down": "hyprctl dispatch workspace e+1",
-        "on-scroll-up": "hyprctl dispatch workspace e-1"
+        "disable-scroll": false,
     },
     "tray": {
         "icon-size": 21,
         "spacing": 10
     },
-
     "cpu": {
         "format": "<span color='#a6e3a1'></span> : {usage}%",
         "format-critical": "<span color='#1e1e2e'></span> : {usage}%",
@@ -116,7 +119,7 @@
             "default": ["", ""]
         },
         "scroll-step": 1,
-        "on-click": "pavucontrol",
+        "on-click": "eww open --toggle media",
         "tooltip": false
     },
 

@@ -3,6 +3,7 @@ packages.txt
 nvim.bak
 lemur
 install.sh
+ignis
 .git
 .github
 .gitignore

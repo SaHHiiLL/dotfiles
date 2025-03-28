@@ -6,8 +6,48 @@ local M = {
     config = function()
       local opts = require("core.themes.cat")
       require("catppuccin").setup(opts)
-      --TODO: make something similar to NvChad theme picker
     end
   },
+  {
+    "navarasu/onedark.nvim",
+    config = function()
+      require("onedark").setup({
+        transparent = true,
+      })
+    end,
+  },
+  {
+    "neanias/everforest-nvim",
+    version = false,
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("everforest").setup {
+        background = "hard",
+        transparent_background_level = 0,
+        ui_contrast = "high",
+        terminal_colors = false,
+      }
+    end,
+  },
+  {
+    "ellisonleao/gruvbox.nvim",
+    priority = 1000,
+    config = function()
+      require("gruvbox").setup({
+        transparent_mode = false,
+      })
+    end,
+  },
+  {
+    "olimorris/onedarkpro.nvim",
+    config = function()
+      require('onedark').setup {
+        options = {
+          transparency = false,
+        }
+      }
+    end
+  }
 }
 return M

@@ -66,16 +66,10 @@ local M = {
     end,
   },
   {
-    "simrat39/rust-tools.nvim",
-    ft = "rust",
-    dependencies = "neovim/nvim-lspconfig",
-    opts = function()
-      return require "core.lsp.lspconfig.rusttools"
-    end,
-    config = function(_, opts)
-      require("rust-tools").setup(opts)
-    end,
-  },
+    'mrcjkb/rustaceanvim',
+    version = '^6',
+    lazy = false,
+  }
 }
 
 return M

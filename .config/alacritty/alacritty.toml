@@ -33,6 +33,6 @@ x = 20
 y = 20
 
 [general]
-import = ["/home/Sahil/.config/alacritty/catppuccin/catppuccin-mocha.toml"]
+import = ["/home/Sahil/.config/alacritty/theme/ayu_dark.toml"]
 
 [terminal]

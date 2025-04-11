@@ -20,4 +20,4 @@ require("core.general.settings")
 local plugs = require("core.plugins")
 require("lazy").setup(plugs, {})
 
-vim.cmd.colorscheme "catppuccin-mocha"
+vim.cmd.colorscheme "ayu-dark"

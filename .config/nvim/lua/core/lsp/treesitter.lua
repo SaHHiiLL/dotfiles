@@ -1,7 +1,5 @@
 print("Loading treesitter.lua")
 local M = {
-  ensure_installed = { "lua" },
-
   highlight = {
     enable = true,
     use_languagetree = true,

@@ -22,12 +22,10 @@ local M = {
     lazy = false,
     priority = 1000,
     config = function()
-      require("everforest").setup {
-        background = "hard",
-        transparent_background_level = 0,
-        ui_contrast = "high",
-        terminal_colors = false,
-      }
+      require("everforest").setup({
+        background = "medium",
+        transparent_background_level = 1,
+      })
     end,
   },
   {
@@ -42,12 +40,51 @@ local M = {
   {
     "olimorris/onedarkpro.nvim",
     config = function()
-      require('onedark').setup {
-        options = {
-          transparency = false,
+      require("onedarkpro").setup({
+        colors = {
+          onedark = { bg = "#1A1D23" }, -- yellow
         }
-      }
+      })
     end
-  }
+  },
+  {
+    "tiagovla/tokyodark.nvim",
+    opts = {
+      transparent_background = false,
+    },
+    config = function(_, opts)
+      require("tokyodark").setup(opts) -- calling setup is optional
+    end
+  },
+  {
+    "AstroNvim/astrotheme",
+    config = function()
+      require("astrotheme").setup({
+        palette = "astrodark",
+        style = {
+          transparent = true,
+        },
+        termguicolors = true,
+        terminal_color = true,
+      })
+    end
+  },
+  {
+    "Shatur/neovim-ayu",
+    config = function()
+      require('lualine').setup({
+        options = {
+          theme = 'ayu',
+        },
+      })
+      local color = require("ayu.colors")
+      color.generate()
+      require("ayu").setup({
+        overrides = {
+          IncSearch = { fg = color.bg, bg = color.markup },
+        }
+      })
+    end
+  },
 }
 return M

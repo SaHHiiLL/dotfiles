@@ -1,5 +1,5 @@
 local M = {
-  transparent_background = true,
+  transparent_background = false,
   flavour = "mocha",
   term_colors = true, -- sets terminal colors (e.g. `g:terminal_color_0`)
   no_bold = false,    -- Force no bold
@@ -8,8 +8,8 @@ local M = {
   },
   color_overrides = {
     mocha = {
-      -- base = '#11111b'
-      base = '#090911'
+      base = '#11111b'
+      -- base = '#090911'
     }
   }
 }

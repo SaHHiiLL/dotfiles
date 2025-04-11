@@ -121,7 +121,7 @@ local M = {
       -- -- Disable folding on alpha buffer
       vim.cmd([[
                 autocmd FileType alpha setlocal nofoldenable
-            ]])
+                ]])
     end
   },
   {
@@ -167,6 +167,22 @@ local M = {
       require 'hex'.setup()
     end
   },
+  {
+    "github/copilot.vim",
+    lazy = false,
+  },
+  {
+    "norcalli/nvim-colorizer.lua",
+    config = function()
+      require("colorizer").setup({
+        "*",
+        css = { rgb_fn = true, },
+        html = { rgb_fn = true, },
+      }, {
+        mode = "background",
+      })
+    end
+  }
 }
 local u = require("core.utils")
 

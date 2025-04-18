@@ -209,10 +209,16 @@ client.background       #FFFFFF
 exec --no-startup-id gnome-settings-daemon
 #start wifi
 exec_always --no-startup-id $HOME/my-shell-scripts/wifi-connection 
-# starting waybar 
+
+# Starting waybar
 exec --no-startup-id waybar
+
+# Starting eww daemon
+exec --no-startup-id eww d
+
 # setting background
 exec --no-startup-id swaybg --image ~/.current_wallpaper
+
 # starting notification deamon
 exec --no-startup-id swaync
 
@@ -226,7 +232,7 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
 #Setting forced application on workspaces
 ## Gaps
 gaps outer 7
-gaps inner 7 
+gaps inner 7
 # smart_gaps on
 # smart_borders on
 

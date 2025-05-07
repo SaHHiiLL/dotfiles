@@ -32,7 +32,7 @@
                                :y "15px"
                                :width "0%"
                                :height "0%"
-                               :anchor "top right")
+                               :anchor "top left")
             :stacking "bg"
             :exclusive false
     (all-dtw))

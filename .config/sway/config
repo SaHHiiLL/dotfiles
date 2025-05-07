@@ -9,11 +9,11 @@ for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disa
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec  xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
+exec  nm-applet
 
 # Setting keyboard layouts
 input "1133:49977:Logitech_PRO_Gaming_Keyboard" {
@@ -22,10 +22,10 @@ input "1133:49977:Logitech_PRO_Gaming_Keyboard" {
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec  pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec  pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec  pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec  pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -33,23 +33,23 @@ floating_modifier $mod
 
 ######## SETTING CUSTOM HOT KEYS ######### 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id alacritty
+bindsym $mod+Return exec  alacritty
 # kill focused window
 bindsym $mod+Shift+q kill
 # restart waybar
-bindsym $mod+Shift+p exec --no-startup-id pkill -x waybar && waybar
+bindsym $mod+Shift+p exec  pkill -x waybar && waybar
 #App launcher
-bindsym $mod+d exec --no-startup-id ~/.config/rofi/launchers/type-1/launcher.sh
-# exit sway (logs you out of your X session)
-bindsym $mod+Shift+e exec --no-startup-id ~/.config/rofi/powermenu/type-1/powermenu.sh
-# Firefox search script
-bindsym $mod+g exec --no-startup-id ~/.config/rofi/custom_menus/scripts.sh
-## -t indicated no compression on png
-bindsym $mod+Print exec --no-startup-id grim -l 0 -c -g "$(slurp -d)" - | wl-copy
-#Captures the whole screen WITH the cursor
-bindsym Print exec grim -l 0 -c -g "0,0 1920x1080"
-#Captures the whole screen WITHOUT the cursor
-bindsym Shift+Print exec grim -l 0 -g "0,0 1920x1080"
+bindsym $mod+d exec  ~/.config/rofi/launchers/type-1/launcher.sh
+# exit sway
+bindsym $mod+Shift+e exec  ~/.config/rofi/powermenu/type-1/powermenu.sh
+# Zen search script
+bindsym $mod+g exec  ~/.config/rofi/custom_menus/scripts.sh
+
+## Screenshot
+# Captures the whole screen and saves it to the clipboard
+bindsym $mod+Print exec flameshot screen -c
+bindsym Print exec flameshot gui
+bindsym Shift+Print exec  flameshot full -p $(echo /home/Sahil/Pictures/$(date +%d-%B-%Y-%H:%M:%S).png)
 
 
 # change focus
@@ -198,32 +198,33 @@ set $crust     #11111b
 
 # Colours
 # class                 border  bground     text        indicator   window border
-client.focused          $base   $surface0   $text       $lavender   $blue
+client.focused          $base   $crust      $text       $lavender   $blue
 client.focused_inactive $teal   $surface1   $subtext1   #484E50     $blue
 client.unfocused        #000000 #000000     #BFBFBF     #292D2E     #222222
 client.urgent           $red    #AD6B00     #FFFFFF     #900000     #900000
 client.placeholder      #000000 #0C0C0C     #FFFFFF     #000000     #0C0C0C
 client.background       #FFFFFF
 
-### Exec 
-exec --no-startup-id gnome-settings-daemon
 #start wifi
-exec_always --no-startup-id $HOME/my-shell-scripts/wifi-connection 
+exec_always $HOME/my-shell-scripts/wifi-connection 
 
 # Starting waybar
-exec --no-startup-id waybar
+exec waybar
 
-# Starting eww daemon
-exec --no-startup-id eww d
+# Starting user services
+exec systemctl --user start eww.service
+exec systemctl --user start eww-toggle@dtw.service
+exec systemctl --user start alacrtity.service
 
 # setting background
-exec --no-startup-id swaybg --image ~/.current_wallpaper
+exec swaybg --image ~/.current_wallpaper
 
 # starting notification deamon
-exec --no-startup-id swaync
+exec swaync
 
-exec --no-startup-id source ~/.config/sway/sway.profile.zsh
+exec source ~/.config/sway/sway.profile.zsh
 
+# Setting environment variables
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec hash dbus-update-activation-environment 2>/dev/null && \
      dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
@@ -246,4 +247,3 @@ blur_passes 6
 blur_brightness 0.5
 
 corner_radius 10
-

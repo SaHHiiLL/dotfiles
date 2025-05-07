@@ -9,12 +9,34 @@ local M = {
     end
   },
   {
-    "navarasu/onedark.nvim",
+    "rose-pine/neovim",
+    name = "rose-pine",
     config = function()
-      require("onedark").setup({
-        transparent = true,
-      })
-    end,
+      require("rose-pine").setup {
+        styles = {
+          transparent = true,
+        },
+      }
+    end
+  },
+  {
+    "navarasu/onedark.nvim",
+    priority = 1000,
+    config = function()
+      require('onedark').setup {
+        style = 'darker',
+        term_colors = true,
+        lualine = {
+          transparent = true,
+        },
+        colors = {
+          bg0 = '#000810',
+          fg = '#C4C9D4',
+          purple = '#CE8DE2',
+        }
+      }
+      require('onedark').load()
+    end
   },
   {
     "neanias/everforest-nvim",
@@ -23,29 +45,24 @@ local M = {
     priority = 1000,
     config = function()
       require("everforest").setup({
-        background = "medium",
-        transparent_background_level = 1,
+        background = "hard",
+        colours_override = function(palette)
+          palette.bg0 = '#0A0B0D'
+        end
       })
     end,
   },
   {
-    "ellisonleao/gruvbox.nvim",
+    "SaHHiiLL/gruvbox.nvim",
     priority = 1000,
     config = function()
       require("gruvbox").setup({
-        transparent_mode = false,
-      })
-    end,
-  },
-  {
-    "olimorris/onedarkpro.nvim",
-    config = function()
-      require("onedarkpro").setup({
-        colors = {
-          onedark = { bg = "#1A1D23" }, -- yellow
+        transparent_mode = true,
+        palette_overrides = {
+          dark0_hard = '#131516',
         }
       })
-    end
+    end,
   },
   {
     "tiagovla/tokyodark.nvim",
@@ -59,14 +76,7 @@ local M = {
   {
     "AstroNvim/astrotheme",
     config = function()
-      require("astrotheme").setup({
-        palette = "astrodark",
-        style = {
-          transparent = true,
-        },
-        termguicolors = true,
-        terminal_color = true,
-      })
+      require("core.themes.astrodark")
     end
   },
   {

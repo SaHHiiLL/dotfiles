@@ -1,6 +1,6 @@
 local u = require("core.utils")
 
-local nvim_lsp = require("lspconfig")
+print("Loading LSP mappings...")
 
 local M = {}
 
@@ -12,10 +12,27 @@ M.Map = function(ev)
   u.Nmap("<leader>lR", "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename")
   u.Nmap("<leader>lh", "<cmd>lua vim.lsp.buf.hover()<CR>", "Hover")
   u.Nmap("<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature Help")
-  u.Nmap("<leader>lD", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", "Show Line Diagnostics")
-  u.Nmap("<leader>e", "<cmd>lua vim.diagnostic.open_float<CR>", "Show Diagnostics")
-  u.Nmap("[d", "<cmd>lua vim.diagnostic.get_next()<CR>", "Next Diagnostic")
-  u.Nmap("]d", "<cmd>lua vim.diagnostic.get_next()<CR>", "Next Diagnostic")
+
+  vim.keymap.set('n', '<leader>ls', function()
+    vim.lsp.buf.signature_help()
+  end, { desc = 'Signature help' })
+
+  vim.keymap.set('n', '<leader>lD', function()
+    vim.diagnostic.show_line_diagnostics()
+  end, { desc = 'Show line diagnostics' })
+
+  vim.keymap.set('n', '<leader>e', function()
+    vim.diagnostic.open_float(nil, { focusable = false })
+  end, { desc = 'Show diagnostics' })
+
+  vim.keymap.set('n', '[d', function()
+    vim.diagnostic.get_prev()
+  end, { desc = 'Previous diagnostic' })
+  vim.keymap.set('n', ']d', function()
+    vim.diagnostic.get_next()
+  end, { desc = 'Next diagnostic' })
+
+
 
   vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
 

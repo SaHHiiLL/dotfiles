@@ -1,0 +1,12 @@
+[Unit]
+Description=Alacritty
+Documentation=https://github.com/alacritty/alacritty
+PartOf=graphical-session.target
+
+[Service]
+Type=exec
+ExecStart=/usr/bin/alacritty --daemon
+Restart=on-failure
+
+[Install]
+WantedBy=graphical-session.target

@@ -26,13 +26,13 @@ program = "/usr/bin/zsh"
 
 [window]
 dynamic_padding=true
-opacity = 0.95
+opacity = 1
 
 [window.padding]
 x = 20
 y = 20
 
 [general]
-import = ["/home/Sahil/.config/alacritty/theme/ayu_dark.toml"]
+import = ["/home/Sahil/.config/alacritty/theme/onedark.toml"]
 
 [terminal]

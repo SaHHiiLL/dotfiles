@@ -7,8 +7,6 @@ u.Nmap("<leader>tc", "<cmd>Telescope colorscheme<cr>", "Choose Color")
 u.Nmap("<A-i>", "<cmd>ToggleTerm direction=float<cr>", "Open Floating Term")
 u.Tmap("<A-i>", "<cmd>ToggleTermToggleAll<cr>", "Open Floating Term")
 
-u.Map({ "v", "n" }, "<leader>.", "<cmd>MCstart<cr>", { desc = "Quit" })
-
 
 -- move reset --
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")

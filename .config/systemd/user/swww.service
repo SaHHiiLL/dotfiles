@@ -1,0 +1,12 @@
+[Unit]
+Description=Swww wallpaper
+PartOf=graphical-session.target
+
+[Service]
+Type=exec
+ExecStart=/usr/bin/swww img ~/.config/wallpaper/catworms.png
+Restart=on-failure
+
+[Install]
+WantedBy=graphical-session.target
+

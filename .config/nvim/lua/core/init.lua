@@ -1,13 +1,13 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -20,4 +20,12 @@ require("core.general.settings")
 local plugs = require("core.plugins")
 require("lazy").setup(plugs, {})
 
-vim.cmd.colorscheme "onedark"
+
+require("lualine").setup({
+    options = {
+        theme = "lackluster",
+        section_separators = { left = '', right = '' },
+        component_separators = { left = '', right = '' },
+    }
+})
+vim.cmd.colorscheme "lackluster-mint"

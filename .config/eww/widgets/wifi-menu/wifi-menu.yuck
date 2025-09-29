@@ -1,0 +1,13 @@
+(defvar is-wifi-connected false)
+
+(defwidget all-wifi-widgets []
+    (box    :orientation "h"
+            :space-evenly false))
+
+(defwindow wifimenu
+    :monitor 0
+    :geometry (geometry  :x "130px"
+                         :y "15px"
+                         :width "250px"
+                         :anchor "top left")
+    (all-wifi-widgets))

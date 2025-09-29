@@ -33,6 +33,6 @@ x = 20
 y = 20
 
 [general]
-import = ["/home/Sahil/.config/alacritty/theme/onedark.toml"]
+import = ["/home/Sahil/.config/alacritty/theme/lackluster.toml"]
 
 [terminal]
